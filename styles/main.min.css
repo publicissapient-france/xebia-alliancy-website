@@ -1,0 +1,50 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+  min-height: 100%;
+  position: relative;
+}
+.wrapper.xebia {
+  background-color: #b39ab8;
+}
+.wrapper.xebia header {
+  background-color: #5c016a;
+  background: -webkit-linear-gradient(top, #5c016a, #820a94);
+  background: -moz-linear-gradient(top, #5c016a, #820a94);
+  background: -ms-linear-gradient(top, #5c016a, #820a94);
+  background: -o-linear-gradient(top, #5c016a, #820a94);
+  background: linear-gradient(top, #5c016a, #820a94);
+}
+.wrapper header {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.wrapper header .company {
+  height: 425px;
+  position: relative;
+}
+.wrapper header .company .hello-laptop {
+  position: absolute;
+  top: 80px;
+  left: 160px;
+}
+.wrapper header .frise {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 55px;
+}
+.wrapper .content {
+  position: absolute;
+  top: 480px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,74 @@
+@xebiaTopHeaderColor: #5c016A;
+@xebiaBottomHeaderColor: #820a94;
+@xebiaBackColor: #b39ab8;
+
+@headerHeight: 425px;
+@friseHeight: 55px;
+
+@minWidth: 1024px;
+
+.gradient(@start, @stop) {
+  background-color: @start;
+  background: -webkit-linear-gradient(top, @start, @stop);
+  background: -moz-linear-gradient(top, @start, @stop);
+  background: -ms-linear-gradient(top, @start, @stop);
+  background: -o-linear-gradient(top, @start, @stop);
+  background: linear-gradient(top, @start, @stop);
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: @minWidth;
+  min-height: 100%;
+  position: relative;
+
+  &.xebia {
+    background-color: @xebiaBackColor;
+
+    header {
+      .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
+    }
+  }
+
+  header {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    .company {
+      height: @headerHeight;
+      position:relative;
+
+      .hello-laptop {
+        position:absolute;
+        top:80px;
+        left:160px;
+      }
+    }
+
+    .frise {
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.9);
+
+      height: @friseHeight;
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: @headerHeight + @friseHeight;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+}
+
