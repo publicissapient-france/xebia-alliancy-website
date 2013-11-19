@@ -1,0 +1,89 @@
+@import 'mixins.less';
+
+@xebiaTopHeaderColor: #5c016A;
+@xebiaBottomHeaderColor: #820a94;
+@xebiaBackColor: #b39ab8;
+
+.wrapper.xebia {
+  background-color: @xebiaBackColor;
+
+  header {
+    .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
+
+    .hello-laptop {
+      position: absolute;
+      top: 80px;
+      left: 160px;
+    }
+
+    .xebia-description {
+      position: absolute;
+      top: 90px;
+      left: 615px;
+      color: white;
+      border-top: 1px solid white;
+      width: 305px;
+      text-align: center;
+
+      h1, h2 {
+        text-transform: uppercase;
+        text-align: justify;
+        padding: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font: 2.25em 'UbuntuRegular', Arial, sans-serif;
+        margin-top: 20px;
+      }
+      h2 {
+        font: 1.4em 'UbuntuRegular', Arial, sans-serif;
+      }
+
+      .sub-description {
+        margin-top: 20px;
+
+        border-bottom: 1px solid white;
+        position: relative;
+
+        .line-left, .line-right {
+          position: absolute;
+          top: 0.7em;
+          border-top: 1px solid white;
+        }
+
+        .line-left {
+          left: 0;
+          right: 73%;
+        }
+        .line-right {
+          right: 0;
+          left: 73%;
+        }
+
+        .delivers {
+          text-transform: uppercase;
+          width: 40%;
+          display: inline-block;
+          font: 1.4em 'UbuntuLight', Arial, sans-serif;
+        }
+
+        .custom-made {
+          margin-top: 20px;
+          background-color: white;
+          color: @xebiaTopHeaderColor;
+          font: 2em 'UbuntuItalic', Arial, sans-serif;
+          height: 45px;
+          line-height: 45px;
+        }
+
+        .software {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          font: 0.96em 'UbuntuRegular', Arial, sans-serif;
+        }
+      }
+    }
+  }
+}

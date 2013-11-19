@@ -1,3 +1,46 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+html,
+body,
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+  min-height: 100%;
+  position: relative;
+}
+.wrapper header {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.wrapper header .company {
+  height: 425px;
+  position: relative;
+}
+.wrapper header .frise {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 55px;
+}
+.wrapper .content {
+  position: absolute;
+  top: 480px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
 @font-face {
   font-family: 'UbuntuRegular';
   src: url('typo/Ubuntu-R-webfont.eot');
@@ -32,26 +75,7 @@
   font-weight: normal;
   font-style: normal;
 }
-html,
-body {
-  height: 100%;
-  min-height: 100%;
-}
-html,
-body,
-h1,
-h2,
-h3,
-p {
-  padding: 0;
-  margin: 0;
-}
-.wrapper {
-  margin: 0 auto;
-  max-width: 1024px;
-  min-height: 100%;
-  position: relative;
-}
+
 .wrapper.xebia {
   background-color: #b39ab8;
 }
@@ -129,25 +153,4 @@ p {
   margin-bottom: 20px;
   text-transform: uppercase;
   font: 0.96em 'UbuntuRegular', Arial, sans-serif;
-}
-.wrapper header {
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-.wrapper header .company {
-  height: 425px;
-  position: relative;
-}
-.wrapper header .frise {
-  background-color: #000000;
-  background-color: rgba(0, 0, 0, 0.9);
-  height: 55px;
-}
-.wrapper .content {
-  position: absolute;
-  top: 480px;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }

@@ -1,64 +1,9 @@
-@xebiaTopHeaderColor: #5c016A;
-@xebiaBottomHeaderColor: #820a94;
-@xebiaBackColor: #b39ab8;
+@import 'mixins.less';
 
 @headerHeight: 425px;
 @friseHeight: 55px;
 
 @minWidth: 1024px;
-
-@font-face {
-  font-family: 'UbuntuRegular';
-  src: url('typo/Ubuntu-R-webfont.eot');
-  src: url('typo/Ubuntu-R-webfont.eot?#iefix') format('embedded-opentype'), url('typo/Ubuntu-R-webfont.woff') format('woff'), url('typo/Ubuntu-R-webfont.ttf') format('truetype'), url('typo/Ubuntu-R-webfont.svg#UbuntuRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-@font-face {
-  font-family: 'UbuntuItalic';
-  src: url('typo/Ubuntu-RI-webfont.eot');
-  src: url('typo/Ubuntu-RI-webfont.eot?#iefix') format('embedded-opentype'),
-  url('typo/Ubuntu-RI-webfont.woff') format('woff'),
-  url('typo/Ubuntu-RI-webfont.ttf') format('truetype'),
-  url('typo/Ubuntu-RI-webfont.svg#UbuntuItalic') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-/*
-@font-face {
-  font-family: 'UbuntuBold';
-  src: url('typo/Ubuntu-B-webfont.eot');
-  src: url('typo/Ubuntu-B-webfont.eot?#iefix') format('embedded-opentype'),
-  url('typo/Ubuntu-B-webfont.woff') format('woff'),
-  url('typo/Ubuntu-B-webfont.ttf') format('truetype'),
-  url('typo/Ubuntu-B-webfont.svg#UbuntuBold') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-*/
-
-@font-face {
-  font-family: 'UbuntuLight';
-  src: url('typo/Ubuntu-L-webfont.eot');
-  src: url('typo/Ubuntu-L-webfont.eot?#iefix') format('embedded-opentype'), url('typo/Ubuntu-L-webfont.woff') format('woff'), url('typo/Ubuntu-L-webfont.ttf') format('truetype'), url('Ubuntu-L-webfont.svg#UbuntuLight') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-.gradient(@start, @stop) {
-  background-color: @start;
-  background: -webkit-linear-gradient(top, @start, @stop);
-  background: -moz-linear-gradient(top, @start, @stop);
-  background: -ms-linear-gradient(top, @start, @stop);
-  background: -o-linear-gradient(top, @start, @stop);
-  background: linear-gradient(top, @start, @stop);
-}
 
 html, body {
   height: 100%;
@@ -75,90 +20,6 @@ html, body, h1, h2, h3, p {
   max-width: @minWidth;
   min-height: 100%;
   position: relative;
-
-  &.xebia {
-    background-color: @xebiaBackColor;
-
-    header {
-      .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
-
-      .hello-laptop {
-        position: absolute;
-        top: 80px;
-        left: 160px;
-      }
-
-      .xebia-description {
-        position: absolute;
-        top: 90px;
-        left: 615px;
-        color: white;
-        border-top: 1px solid white;
-        width: 305px;
-        text-align: center;
-
-        h1, h2 {
-          text-transform: uppercase;
-          text-align: justify;
-          padding: 0;
-          margin: 0;
-        }
-
-        h1 {
-          font: 2.25em 'UbuntuRegular', Arial, sans-serif;
-          margin-top: 20px;
-        }
-        h2 {
-          font: 1.4em 'UbuntuRegular', Arial, sans-serif;
-        }
-
-        .sub-description {
-          margin-top: 20px;
-
-          border-bottom: 1px solid white;
-          position: relative;
-
-          .line-left, .line-right {
-            position: absolute;
-            top:0.7em;
-            border-top: 1px solid white;
-          }
-
-          .line-left {
-            left: 0;
-            right: 73%;
-          }
-          .line-right {
-            right: 0;
-            left: 73%;
-          }
-
-          .delivers {
-            text-transform: uppercase;
-            width: 40%;
-            display: inline-block;
-            font: 1.4em 'UbuntuLight', Arial, sans-serif;
-          }
-
-          .custom-made {
-            margin-top: 20px;
-            background-color: white;
-            color:@xebiaTopHeaderColor;
-            font: 2em 'UbuntuItalic', Arial, sans-serif;
-            height:45px;
-            line-height: 45px;
-          }
-
-          .software {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font: 0.96em 'UbuntuRegular', Arial, sans-serif;
-          }
-        }
-      }
-    }
-  }
 
   header {
     position: absolute;
