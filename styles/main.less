@@ -2,6 +2,7 @@
 
 @headerHeight: 425px;
 @friseHeight: 55px;
+@navigationButtonRadius: 20px;
 
 @minWidth: 1024px;
 
@@ -27,10 +28,34 @@ html, body, h1, h2, h3, p {
     left: 0;
     right: 0;
 
+    .prev-page-wrapper, .next-page-wrapper {
+      vertical-align: middle;
+      height: 100%;
+      line-height: @headerHeight;
+    }
+
+    .prev-page-wrapper {
+      float: left;
+    }
+
+    .next-page-wrapper {
+      float: right;
+    }
+
+    .prev-page, .next-page {
+      border-radius: 100%; //TODO MIXIN
+      border: none;
+      padding: 0;
+      margin: 0;
+      color: white;
+      height: @navigationButtonRadius*2;
+      width: @navigationButtonRadius*2;
+      cursor: pointer;
+    }
+
     .company {
       height: @headerHeight;
       position: relative;
-
     }
 
     .frise {

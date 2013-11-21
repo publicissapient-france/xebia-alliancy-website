@@ -23,6 +23,28 @@ p {
   left: 0;
   right: 0;
 }
+.wrapper header .prev-page-wrapper,
+.wrapper header .next-page-wrapper {
+  vertical-align: middle;
+  height: 100%;
+  line-height: 425px;
+}
+.wrapper header .prev-page,
+.wrapper header .next-page {
+  border-radius: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+.wrapper header .prev-page-wrapper {
+  float: left;
+}
+.wrapper header .next-page-wrapper {
+  float: right;
+}
 .wrapper header .company {
   height: 425px;
   position: relative;
