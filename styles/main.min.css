@@ -1,3 +1,28 @@
+.headers > div.labs-header {
+  left: 2048px;
+}
+.wrapper.labs {
+  background-color: #e0e0e0;
+}
+.wrapper.labs .prev-page,
+.wrapper.labs .next-page {
+  background-color: #e0e9ee;
+}
+.wrapper.labs .headers {
+  left: -2048px;
+}
+.wrapper.labs .frise {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.labs-header {
+  background-color: #bad6e2;
+  background: -webkit-linear-gradient(top, #bad6e2, #f2f2f2);
+  background: -moz-linear-gradient(top, #bad6e2, #f2f2f2);
+  background: -ms-linear-gradient(top, #bad6e2, #f2f2f2);
+  background: -o-linear-gradient(top, #bad6e2, #f2f2f2);
+  background: linear-gradient(top, #bad6e2, #f2f2f2);
+}
+
 html,
 body {
   height: 100%;
@@ -12,11 +37,27 @@ p {
   padding: 0;
   margin: 0;
 }
+.headers {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.headers > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .wrapper {
   margin: 0 auto;
   max-width: 1024px;
   min-height: 100%;
   position: relative;
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 .wrapper header {
   position: absolute;
@@ -28,6 +69,13 @@ p {
   vertical-align: middle;
   height: 100%;
   line-height: 425px;
+  position: absolute;
+}
+.wrapper header .prev-page-wrapper {
+  left: 20px;
+}
+.wrapper header .next-page-wrapper {
+  right: 20px;
 }
 .wrapper header .prev-page,
 .wrapper header .next-page {
@@ -37,21 +85,32 @@ p {
   margin: 0;
   color: white;
   height: 40px;
+  line-height: 40px;
   width: 40px;
-}
-.wrapper header .prev-page-wrapper {
-  float: left;
-}
-.wrapper header .next-page-wrapper {
-  float: right;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  -moz-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 .wrapper header .company {
   height: 425px;
   position: relative;
+  overflow: hidden;
 }
 .wrapper header .frise {
   background-color: #000000;
   background-color: rgba(0, 0, 0, 0.9);
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
   height: 55px;
 }
 .wrapper .content {
@@ -62,6 +121,26 @@ p {
   right: 0;
 }
 
+
+.headers > div.thiga-header {
+  left: 3072px;
+}
+.wrapper.thiga {
+  background-color: #b2f0ef;
+}
+.wrapper.thiga .prev-page,
+.wrapper.thiga .next-page {
+  background-color: #68e3e0;
+}
+.wrapper.thiga .headers {
+  left: -3072px;
+}
+.wrapper.thiga .frise {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.thiga-header {
+  background-color: #30d7cf;
+}
 
 @font-face {
   font-family: 'UbuntuRegular';
@@ -98,10 +177,32 @@ p {
   font-style: normal;
 }
 
+.headers > div.ux-header {
+  left: 1024px;
+}
+.wrapper.ux {
+  background-color: #bcbcbc;
+}
+.wrapper.ux .prev-page,
+.wrapper.ux .next-page {
+  background-color: #acaa9b;
+}
+.wrapper.ux .headers {
+  left: -1024px;
+}
+.ux-header {
+  background-color: #9b8d70;
+}
+
+
 .wrapper.xebia {
   background-color: #b39ab8;
 }
-.wrapper.xebia header {
+.wrapper.xebia .prev-page,
+.wrapper.xebia .next-page {
+  background-color: #9850a6;
+}
+.xebia-header {
   background-color: #5c016a;
   background: -webkit-linear-gradient(top, #5c016a, #820a94);
   background: -moz-linear-gradient(top, #5c016a, #820a94);
@@ -109,12 +210,12 @@ p {
   background: -o-linear-gradient(top, #5c016a, #820a94);
   background: linear-gradient(top, #5c016a, #820a94);
 }
-.wrapper.xebia header .hello-laptop {
+.xebia-header .hello-laptop {
   position: absolute;
   top: 80px;
   left: 160px;
 }
-.wrapper.xebia header .xebia-description {
+.xebia-header .xebia-description {
   position: absolute;
   top: 90px;
   left: 615px;
@@ -123,46 +224,46 @@ p {
   width: 305px;
   text-align: center;
 }
-.wrapper.xebia header .xebia-description h1,
-.wrapper.xebia header .xebia-description h2 {
+.xebia-header .xebia-description h1,
+.xebia-header .xebia-description h2 {
   text-transform: uppercase;
   text-align: justify;
   padding: 0;
   margin: 0;
 }
-.wrapper.xebia header .xebia-description h1 {
+.xebia-header .xebia-description h1 {
   font: 2.25em 'UbuntuRegular', Arial, sans-serif;
   margin-top: 20px;
 }
-.wrapper.xebia header .xebia-description h2 {
+.xebia-header .xebia-description h2 {
   font: 1.4em 'UbuntuRegular', Arial, sans-serif;
 }
-.wrapper.xebia header .xebia-description .sub-description {
+.xebia-header .xebia-description .sub-description {
   margin-top: 20px;
   border-bottom: 1px solid white;
   position: relative;
 }
-.wrapper.xebia header .xebia-description .sub-description .line-left,
-.wrapper.xebia header .xebia-description .sub-description .line-right {
+.xebia-header .xebia-description .sub-description .line-left,
+.xebia-header .xebia-description .sub-description .line-right {
   position: absolute;
   top: 0.7em;
   border-top: 1px solid white;
 }
-.wrapper.xebia header .xebia-description .sub-description .line-left {
+.xebia-header .xebia-description .sub-description .line-left {
   left: 0;
   right: 73%;
 }
-.wrapper.xebia header .xebia-description .sub-description .line-right {
+.xebia-header .xebia-description .sub-description .line-right {
   right: 0;
   left: 73%;
 }
-.wrapper.xebia header .xebia-description .sub-description .delivers {
+.xebia-header .xebia-description .sub-description .delivers {
   text-transform: uppercase;
   width: 40%;
   display: inline-block;
   font: 1.4em 'UbuntuLight', Arial, sans-serif;
 }
-.wrapper.xebia header .xebia-description .sub-description .custom-made {
+.xebia-header .xebia-description .sub-description .custom-made {
   margin-top: 20px;
   background-color: white;
   color: #5c016a;
@@ -170,7 +271,7 @@ p {
   height: 45px;
   line-height: 45px;
 }
-.wrapper.xebia header .xebia-description .sub-description .software {
+.xebia-header .xebia-description .sub-description .software {
   margin-top: 20px;
   margin-bottom: 20px;
   text-transform: uppercase;

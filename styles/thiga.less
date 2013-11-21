@@ -1,0 +1,34 @@
+@import 'mixins.less';
+@import 'vars.less';
+
+@thigaHeaderColor: #30D7CF;
+
+@thigaBackColor: #B2F0EF;
+@thigaButtonColor: #68E3E0;
+
+.headers > div.thiga-header {
+  left: 3 * @minWidth;
+}
+
+.wrapper.thiga {
+  background-color: @thigaBackColor;
+
+  .prev-page, .next-page {
+    background-color: @thigaButtonColor;
+  }
+
+  .headers {
+    left: -3 * @minWidth;
+  }
+
+
+  .frise {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.thiga-header {
+  background-color: @thigaHeaderColor;
+
+}
+

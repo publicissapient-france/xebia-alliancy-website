@@ -18,9 +18,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <link rel="stylesheet" type="text/css" href="styles/main.min.css">
+    <link rel="stylesheet" href="styles/main.min.css">
 
-    <script src="scripts/main.min.js"></script>
 </head>
 <body>
 
@@ -28,12 +27,13 @@
     <header>
 
         <div class="company">
-            <div class="prev-page-wrapper">
-                <button class="prev-page">&lt;</button>
-            </div>
+
             {{ content }}
+            <div class="prev-page-wrapper">
+                <button class="prev-page">&nbsp;</button>
+            </div>
             <div class="next-page-wrapper">
-                <button class="next-page">&gt;</button>
+                <button class="next-page">&nbsp;</button>
             </div>
         </div>
 
@@ -46,5 +46,13 @@
     </section>
 </div>
 
+<script src="scripts/jquery-2.0.3.min.js"></script>
+<script src="scripts/lodash-2.3.0.min.js"></script>
+<script src="scripts/main.min.js"></script>
+<script>
+    $(function () {
+        APPLICATION.init('{{page.classBody}}');
+    })
+</script>
 </body>
 </html>

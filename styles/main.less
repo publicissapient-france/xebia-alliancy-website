@@ -1,10 +1,5 @@
 @import 'mixins.less';
-
-@headerHeight: 425px;
-@friseHeight: 55px;
-@navigationButtonRadius: 20px;
-
-@minWidth: 1024px;
+@import 'vars.less';
 
 html, body {
   height: 100%;
@@ -16,11 +11,26 @@ html, body, h1, h2, h3, p {
   margin: 0;
 }
 
+.headers {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  & > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: @minWidth;
   min-height: 100%;
   position: relative;
+  .transition(background-color 0.5s);
 
   header {
     position: absolute;
@@ -32,14 +42,17 @@ html, body, h1, h2, h3, p {
       vertical-align: middle;
       height: 100%;
       line-height: @headerHeight;
+      position: absolute;
+
     }
 
+    @marginNavigationButton: 20px;
     .prev-page-wrapper {
-      float: left;
+      left: @marginNavigationButton;
     }
 
     .next-page-wrapper {
-      float: right;
+      right: @marginNavigationButton;
     }
 
     .prev-page, .next-page {
@@ -49,18 +62,26 @@ html, body, h1, h2, h3, p {
       margin: 0;
       color: white;
       height: @navigationButtonRadius*2;
+      line-height: @navigationButtonRadius*2;
       width: @navigationButtonRadius*2;
       cursor: pointer;
+      font-size: 1.5em;
+      text-align: center;
+      vertical-align: middle;
+      .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
+      .transition(background-color 0.5s);
     }
 
     .company {
       height: @headerHeight;
       position: relative;
+      overflow: hidden;
     }
 
     .frise {
       background-color: rgb(0, 0, 0);
       background-color: rgba(0, 0, 0, 0.9);
+      .transition(background-color 0.5s);
 
       height: @friseHeight;
     }

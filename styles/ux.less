@@ -1,0 +1,29 @@
+@import 'mixins.less';
+@import 'vars.less';
+
+@uxHeaderColor: #9B8D70;
+
+@uxBackColor: #BCBCBC;
+@uxButtonColor: #ACAA9B;
+
+.headers > div.ux-header {
+  left: @minWidth;
+}
+
+.wrapper.ux {
+  background-color: @uxBackColor;
+
+  .prev-page, .next-page {
+    background-color: @uxButtonColor;
+  }
+
+  .headers {
+    left: -@minWidth;
+  }
+
+}
+
+.ux-header {
+  background-color: @uxHeaderColor;
+
+}
