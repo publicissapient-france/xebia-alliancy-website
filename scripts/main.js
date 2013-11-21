@@ -56,7 +56,7 @@
             });
 
             setInterval(function () {
-        //TODO A reactiver        goToNextPage();
+                goToNextPage();
             }, 10000);
         },
         goToPage: function (pageToGo) {
