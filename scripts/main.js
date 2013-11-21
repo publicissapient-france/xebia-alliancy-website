@@ -29,9 +29,9 @@
 
             //bug qui fait que l'animation ne se déclenche pas
             var $headers = $('.headers');
-            $headers.css('left',$headers.css('left'));
+            $headers.css('left', $headers.css('left'));
 
-            $('.next-page').click(function () {
+            var goToNextPage = function () {
                 var currentIndex = _.findIndex(PAGES, function (page) {
                     return page.page == self.currentPage
                 });
@@ -40,7 +40,9 @@
                 var nextPage = PAGES[nextPageIndex];
 
                 self.navigate(nextPage);
-            });
+            };
+
+            $('.next-page').click(goToNextPage);
 
             $('.prev-page').click(function () {
                 var currentIndex = _.findIndex(PAGES, function (page) {
@@ -52,18 +54,22 @@
 
                 self.navigate(nextPage);
             });
+
+            setInterval(function () {
+        //TODO A reactiver        goToNextPage();
+            }, 10000);
         },
         goToPage: function (pageToGo) {
             var self = this;
             var indexOfPage = _.findIndex(PAGES, function (page) {
                 return page.page == pageToGo.page;
             });
-            console.log(indexOfPage);
+
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
 
             $('.headers').animate({
                 left: (-indexOfPage * 1024) + 'px'
-            },500, function () {
+            }, 500, function () {
                 self.currentPage = pageToGo.page;
             });
         },

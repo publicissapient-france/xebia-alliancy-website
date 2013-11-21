@@ -46,7 +46,7 @@ p {
 }
 .headers > div {
   position: absolute;
-  width: 100%;
+  width: 1024px;
   height: 100%;
 }
 .wrapper {
@@ -100,7 +100,7 @@ p {
   transition: background-color 0.5s;
 }
 .wrapper header .company {
-  height: 425px;
+  height: 480px;
   position: relative;
   overflow: hidden;
 }
@@ -111,7 +111,10 @@ p {
   -webkit-transition: background-color 0.5s;
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s;
+  position: absolute;
+  bottom: 0;
   height: 55px;
+  width: 1024px;
 }
 .wrapper .content {
   position: absolute;
@@ -190,8 +193,12 @@ p {
 .wrapper.ux .headers {
   left: -1024px;
 }
+.wrapper.ux .frise {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .ux-header {
   background-color: #9b8d70;
+  background-image: url('../images/ux-background.jpg');
 }
 
 
