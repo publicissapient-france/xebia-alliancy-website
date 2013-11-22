@@ -25,14 +25,27 @@
     left: -3 * @minWidth;
   }
 
-
-  .frise {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
 }
 
 .thiga-header {
   background-color: @thigaHeaderColor;
+}
 
+.thiga-header-logo {
+  position: absolute;
+  top:70px;
+  left:(@minWidth - 97px)/2
+}
+
+.thiga-description {
+  position:absolute;
+  top:185px;
+  left:320px;
+  width:620px;
+  h1 {
+    color:white;
+    text-transform: uppercase;
+    font-size:1.5em;
+  }
 }
 
