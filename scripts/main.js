@@ -56,7 +56,7 @@
             });
 
             setInterval(function () {
-                goToNextPage();
+         //       goToNextPage();
             }, 10000);
         },
         goToPage: function (pageToGo) {

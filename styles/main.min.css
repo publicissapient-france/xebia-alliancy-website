@@ -4,6 +4,9 @@
 .wrapper.labs {
   background-color: #e0e0e0;
 }
+.wrapper.labs .page-indicator-labs {
+  background-color: white;
+}
 .wrapper.labs .prev-page,
 .wrapper.labs .next-page {
   background-color: #e0e9ee;
@@ -99,6 +102,22 @@ p {
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s;
 }
+.wrapper header .page-indicators {
+  position: absolute;
+  bottom: 65px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.wrapper header .page-indicators > span {
+  display: inline-block;
+  border-radius: 100%;
+  border: 1px solid white;
+  height: 10px;
+  width: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .wrapper header .company {
   height: 480px;
   position: relative;
@@ -130,6 +149,9 @@ p {
 }
 .wrapper.thiga {
   background-color: #b2f0ef;
+}
+.wrapper.thiga .page-indicator-thiga {
+  background-color: white;
 }
 .wrapper.thiga .prev-page,
 .wrapper.thiga .next-page {
@@ -186,6 +208,9 @@ p {
 .wrapper.ux {
   background-color: #bcbcbc;
 }
+.wrapper.ux .page-indicator-ux {
+  background-color: white;
+}
 .wrapper.ux .prev-page,
 .wrapper.ux .next-page {
   background-color: #acaa9b;
@@ -208,6 +233,9 @@ p {
 .wrapper.xebia .prev-page,
 .wrapper.xebia .next-page {
   background-color: #9850a6;
+}
+.wrapper.xebia .page-indicator-xebia {
+  background-color: white;
 }
 .xebia-header {
   background-color: #5c016a;
