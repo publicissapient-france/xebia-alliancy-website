@@ -10,9 +10,6 @@
 .wrapper.labs .headers {
   left: -2048px;
 }
-.wrapper.labs .frise {
-  background-color: rgba(0, 0, 0, 0.5);
-}
 .wrapper.labs .knowing-more .emphasized {
   color: #046586;
 }
@@ -40,6 +37,13 @@
   left: 0;
   right: 0;
   text-align: center;
+  font-family: 'Oxygen', sans-serif;
+}
+.labs-description h1 {
+  font-weight: bold;
+}
+.labs-description h2 {
+  font-weight: lighter;
 }
 
 html,
@@ -81,7 +85,7 @@ p {
 .wrapper .header-decoration {
   position: absolute;
   width: 1024px;
-  height: 425px;
+  height: 440px;
 }
 .wrapper .alliance-logo {
   background: url("../images/img_header_logo_alliance.png");
@@ -102,7 +106,7 @@ p {
 .wrapper header .prev-page-wrapper,
 .wrapper header .next-page-wrapper {
   vertical-align: middle;
-  line-height: 485px;
+  line-height: 500px;
   position: absolute;
 }
 .wrapper header .prev-page-wrapper {
@@ -137,7 +141,7 @@ p {
 }
 .wrapper header .prev-page > span,
 .wrapper header .next-page > span {
-  color: #DDD;
+  color: #EEE;
   position: relative;
   bottom: 2px;
 }
@@ -197,7 +201,7 @@ p {
   background-color: rgba(220, 220, 220, 0.4);
 }
 .wrapper header .company {
-  height: 485px;
+  height: 500px;
   position: relative;
   overflow: hidden;
 }
@@ -247,7 +251,7 @@ p {
 }
 .wrapper .content {
   position: absolute;
-  top: 485px;
+  top: 500px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -299,13 +303,13 @@ p {
 }
 .thiga-header-logo {
   position: absolute;
-  top: 70px;
+  top: 90px;
   left: 380px;
 }
 .thiga-description {
   position: absolute;
   text-align: center;
-  top: 185px;
+  top: 205px;
   left: 204px;
   width: 620px;
 }
@@ -313,6 +317,8 @@ p {
   color: white;
   text-transform: uppercase;
   font-size: 1.5em;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: lighter;
 }
 
 @font-face {
@@ -381,16 +387,21 @@ p {
 .ux-description {
   position: absolute;
   left: 460px;
-  top: 140px;
+  top: 130px;
   color: white;
   text-transform: uppercase;
   width: 370px;
 }
 .ux-description .top-description {
   font-size: 2.1em;
+  font-family: 'Open Sans', sans-serif;
 }
 .ux-description .rock-n-roll {
   font-size: 2em;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bolder;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 
