@@ -1,13 +1,10 @@
 @import 'mixins.less';
 @import 'vars.less';
 
-@labsTopHeaderColor: #BAD6E2;
-@labsBottomHeaderColor: #F2F2F2;
-
 @labsBackColor: #E0E0E0;
 @labsButtonColor: #E0E9EE;
 
-@labsColor:#046586;
+@labsColor: #046586;
 @labsEmphasizedFontColor: #046586;
 
 .headers > div.labs-header {
@@ -15,7 +12,6 @@
 }
 
 .wrapper.labs {
-  background-color: @labsBackColor;
 
   .page-indicator-labs {
     background-color: white;
@@ -23,6 +19,12 @@
 
   .headers {
     left: -2 * @minWidth;
+
+    & > div.labs-header {
+      background-image: url('../images/labs/img_Header_Xebialabs.png');
+      display: block;
+      text-align: center;
+    }
   }
 
   .knowing-more .emphasized {
@@ -34,23 +36,16 @@
   }
 }
 
-.labs-header {
-  .gradient(@labsTopHeaderColor, @labsBottomHeaderColor);
-  background-image: url('../images/labs/img_Header_Xebialabs.png');
-}
-
 .labs-header-logo {
-  position: absolute;
-  top:90px;
-  left:(@minWidth - 514px)/2
+  margin-top: 90px;
 }
 
 .labs-description {
-  color:@labsColor;
-  position:absolute;
-  top:210px;
-  left:0;
-  right:0;
+  color: @labsColor;
+
+  margin-right: auto;
+  margin-left: auto;
+
   text-align: center;
   font-family: 'Oxygen', sans-serif;
 
@@ -61,4 +56,3 @@
     font-weight: lighter;
   }
 }
-

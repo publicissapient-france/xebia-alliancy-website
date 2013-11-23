@@ -9,10 +9,18 @@
 @xebiaEmphasizedFontColor: #5D0065;
 
 .wrapper.xebia {
-  background-color: @xebiaBackColor;
 
   .page-indicator-xebia {
     background-color: white;
+  }
+
+  .headers {
+
+    & > div.xebia-header {
+      .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
+      display: block;
+      text-align: center;
+    }
   }
 
   .knowing-more .emphasized {
@@ -24,19 +32,24 @@
   }
 }
 
-.xebia-header {
-  .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
+@xebiaLogoLaptopWidth: 469px;
+@xebiaLogoTexteWidth: 347px;
+
+.xebia-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: @xebiaLogoLaptopWidth+@xebiaLogoTexteWidth+10px;
+  position: relative;
+  top: 75px;
+
+  .clearFloat();
 
   .hello-laptop {
-    position: absolute;
-    top: 80px;
-    left: 95px;
+    width: @xebiaLogoLaptopWidth;
+    float:left;
   }
 
   .xebia-description {
-    position: absolute;
-    top: 65px;
-    left: 585px;
+    width: @xebiaLogoTexteWidth;
   }
-
 }

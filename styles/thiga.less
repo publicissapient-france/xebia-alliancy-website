@@ -13,7 +13,6 @@
 }
 
 .wrapper.thiga {
-  background-color: @thigaBackColor;
 
   .page-indicator-thiga {
     background-color: white;
@@ -21,6 +20,12 @@
 
   .headers {
     left: -3 * @minWidth;
+
+    & > div.thiga-header {
+      background-color: @thigaHeaderColor;
+      display:block;
+      text-align: center;
+    }
   }
 
   .knowing-more .emphasized {
@@ -32,22 +37,15 @@
   }
 }
 
-.thiga-header {
-  background-color: @thigaHeaderColor;
-}
-
 .thiga-header-logo {
-  position: absolute;
-  top: 90px;
-  left: 380px;
+  margin-top:90px;
 }
 
 .thiga-description {
-  position: absolute;
   text-align: center;
-  top: 205px;
-  left: 204px;
-  width: 620px;
+  max-width: 620px;
+  margin-right: auto;
+  margin-left: auto;
   h1 {
     color: white;
     text-transform: uppercase;
@@ -56,4 +54,3 @@
     font-weight: lighter;
   }
 }
-

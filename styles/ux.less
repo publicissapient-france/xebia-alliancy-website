@@ -1,8 +1,6 @@
 @import 'mixins.less';
 @import 'vars.less';
 
-@uxHeaderColor: #9B8D70;
-
 @uxBackColor: #BCBCBC;
 @uxButtonColor: #ACAA9B;
 @uxEmphasizedFontColor: #000000;
@@ -12,7 +10,7 @@
 }
 
 .wrapper.ux {
-  background-color: @uxBackColor;
+  //background-color: @uxBackColor;
 
   .page-indicator-ux {
     background-color: white;
@@ -20,6 +18,12 @@
 
   .headers {
     left: -@minWidth;
+
+    & > div.ux-header {
+      background-image: url('../images/ux/img_header_ux-republic.png');
+      display: block;
+      text-align: center;
+    }
   }
 
   .knowing-more .emphasized {
@@ -31,35 +35,43 @@
   }
 }
 
-.ux-header {
-  background-color: @uxHeaderColor;
-  background-image: url('../images/ux/img_header_ux-republic.png');
-}
+@uxLogoWidth: 190px;
+@uxTextWidth: 370px;
 
-.ux-header-logo {
-  opacity: 0.7;
-  position: absolute;
-  top: 110px;
-  left: 270px;
-}
+.ux-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: @uxTextWidth+@uxLogoWidth+10px;
+  max-height: 200px;
+  position: relative;
+  top: 90px;
 
-.ux-description {
-  position: absolute;
-  left: 460px;
-  top: 130px;
-  color: white;
-  text-transform: uppercase;
-  width: 370px;
+  .clearFloat();
 
-  .top-description {
-    font-size: 2.1em;
-    font-family: 'Open Sans', sans-serif;
+  .ux-header-logo {
+    opacity: 0.7;
+    width: @uxLogoWidth;
+    float: left;
   }
 
-  .rock-n-roll {
-    font-size: 2em;
-    font-family: 'Oxygen', sans-serif;
-    font-weight: bolder;
-    .colorRgba(255, 255, 255, 0.75);
+  .ux-description {
+    margin-top: 21px;
+    margin-left: -25px;
+    color: white;
+    text-transform: uppercase;
+    max-width: @uxTextWidth;
+    display: inline-block;
+
+    .top-description {
+      font-size: 2.1em;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .rock-n-roll {
+      font-size: 2em;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: bolder;
+      .colorRgba(255, 255, 255, 0.75);
+    }
   }
 }

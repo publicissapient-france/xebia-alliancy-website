@@ -29,3 +29,11 @@
   color: rgb(@red,@green,@blue);
   color: rgba(@red,@green,@blue,@opacity);
 }
+
+.clearFloat() {
+  &:after {
+    clear: both;
+    content:'';
+    display: block;
+  }
+}
