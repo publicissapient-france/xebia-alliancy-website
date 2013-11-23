@@ -1,10 +1,10 @@
 (function () {
 
     var PAGES = [
-        {page: 'xebia', title: "Xebia", url: 'index.html'},
-        {page: 'ux', title: "UX Republic", url: 'ux.html'},
-        {page: 'labs', title: "Xebia Labs", url: 'labs.html'},
-        {page: 'thiga', title: "THIGA", url: 'thiga.html'}
+        {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl:'http://www.xebia.fr'},
+        {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl:'http://ux-republic.com'},
+        {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com'},
+        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl:'http://www.thiga.com'}
     ];
 
 
@@ -15,6 +15,7 @@
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
+            
         },
         initRouting: function () {
             var self = this;
@@ -80,6 +81,7 @@
             });
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
+            $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
 
             $('.headers').animate({
                 left: (-indexOfPage * 1024) + 'px'

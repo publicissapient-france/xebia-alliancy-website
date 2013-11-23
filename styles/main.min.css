@@ -158,7 +158,7 @@ p {
   bottom: 55px;
   text-align: center;
 }
-.wrapper header .knowing-more > span {
+.wrapper header .knowing-more a > span {
   text-transform: uppercase;
   font-family: 'Oxygen', sans-serif;
   font-size: 0.9em;
@@ -175,7 +175,7 @@ p {
   transition: color 0.5s;
   color: #4e5454;
 }
-.wrapper header .knowing-more > span .emphasized {
+.wrapper header .knowing-more a > span .emphasized {
   font-weight: 700;
   -moz-transition: color 0.5s;
   -webkit-transition: color 0.5s;
