@@ -85,7 +85,7 @@ p {
 .wrapper .header-decoration {
   position: absolute;
   width: 1024px;
-  height: 440px;
+  height: 410px;
 }
 .wrapper .alliance-logo {
   background: url("../images/img_header_logo_alliance.png");
@@ -106,7 +106,7 @@ p {
 .wrapper header .prev-page-wrapper,
 .wrapper header .next-page-wrapper {
   vertical-align: middle;
-  line-height: 500px;
+  line-height: 470px;
   position: absolute;
 }
 .wrapper header .prev-page-wrapper {
@@ -201,7 +201,7 @@ p {
   background-color: rgba(220, 220, 220, 0.4);
 }
 .wrapper header .company {
-  height: 500px;
+  height: 470px;
   position: relative;
   overflow: hidden;
 }
@@ -251,7 +251,7 @@ p {
 }
 .wrapper .content {
   position: absolute;
-  top: 500px;
+  top: 470px;
   bottom: 0;
   left: 0;
   right: 0;

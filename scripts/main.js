@@ -7,7 +7,6 @@
         {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl:'http://www.thiga.com'}
     ];
 
-
     window.APPLICATION = {
         currentPage: null,
         init: function (currentPage) {
@@ -71,7 +70,7 @@
             });
 
             setInterval(function () {
-                goToNextPage();
+             //   goToNextPage();
             }, 10000);
         },
         goToPage: function (pageToGo) {
