@@ -7,6 +7,9 @@
 @labsBackColor: #E0E0E0;
 @labsButtonColor: #E0E9EE;
 
+@labsColor:#046586;
+@labsEmphasizedFontColor: #046586;
+
 .headers > div.labs-header {
   left: 2 * @minWidth;
 }
@@ -18,10 +21,6 @@
     background-color: white;
   }
 
-  .prev-page, .next-page {
-    background-color: @labsButtonColor;
-  }
-
   .headers {
     left: -2 * @minWidth;
   }
@@ -29,15 +28,29 @@
   .frise {
     background-color: rgba(0, 0, 0, 0.5);
   }
+
+  .knowing-more .emphasized {
+    color: @labsEmphasizedFontColor
+  }
 }
 
 .labs-header {
   .gradient(@labsTopHeaderColor, @labsBottomHeaderColor);
+  background-image: url('../images/labs/img_Header_Xebialabs.png');
 }
 
 .labs-header-logo {
   position: absolute;
   top:90px;
   left:(@minWidth - 514px)/2
+}
+
+.labs-description {
+  color:@labsColor;
+  position:absolute;
+  top:210px;
+  left:0;
+  right:0;
+  text-align: center;
 }
 

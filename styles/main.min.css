@@ -7,15 +7,14 @@
 .wrapper.labs .page-indicator-labs {
   background-color: white;
 }
-.wrapper.labs .prev-page,
-.wrapper.labs .next-page {
-  background-color: #e0e9ee;
-}
 .wrapper.labs .headers {
   left: -2048px;
 }
 .wrapper.labs .frise {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.wrapper.labs .knowing-more .emphasized {
+  color: #046586;
 }
 .labs-header {
   background-color: #bad6e2;
@@ -24,11 +23,20 @@
   background: -ms-linear-gradient(top, #bad6e2, #f2f2f2);
   background: -o-linear-gradient(top, #bad6e2, #f2f2f2);
   background: linear-gradient(top, #bad6e2, #f2f2f2);
+  background-image: url('../images/labs/img_Header_Xebialabs.png');
 }
 .labs-header-logo {
   position: absolute;
   top: 90px;
   left: 255px;
+}
+.labs-description {
+  color: #046586;
+  position: absolute;
+  top: 210px;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 html,
@@ -121,6 +129,50 @@ p {
   -webkit-transition: background-color 0.5s;
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s;
+  background-color: #dcdcdc;
+  background-color: rgba(220, 220, 220, 0.4);
+}
+.wrapper header .prev-page > span,
+.wrapper header .next-page > span {
+  position: relative;
+  bottom: 2px;
+}
+.wrapper header .prev-page > span {
+  right: 2px;
+}
+.wrapper header .next-page > span {
+  left: 2px;
+}
+.wrapper header .knowing-more {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 55px;
+  text-align: center;
+}
+.wrapper header .knowing-more > span {
+  text-transform: uppercase;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #ebebeb;
+  background-color: rgba(235, 235, 235, 0.7);
+  -moz-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
+  color: #4e5454;
+}
+.wrapper header .knowing-more > span .emphasized {
+  font-weight: 700;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
 }
 .wrapper header .page-indicators {
   position: absolute;
@@ -130,6 +182,7 @@ p {
   text-align: center;
 }
 .wrapper header .page-indicators > span {
+  cursor: pointer;
   display: inline-block;
   border-radius: 100%;
   height: 10px;
@@ -166,22 +219,22 @@ p {
   display: inline-block;
 }
 .wrapper header .frise > span > a.xebia {
-  background: url('../images/img_nav_logo_Xebia.png');
+  background: url('../images/xebia/img_nav_logo_Xebia.png');
   width: 101px;
   height: 45px;
 }
 .wrapper header .frise > span > a.ux {
-  background: url('../images/img_nav_logo_UX.png');
+  background: url('../images/ux/img_nav_logo_UX.png');
   width: 161px;
   height: 59px;
 }
 .wrapper header .frise > span > a.labs {
-  background: url('../images/img_nav_logo_labs.png');
+  background: url('../images/labs/img_nav_logo_labs.png');
   width: 151px;
   height: 46px;
 }
 .wrapper header .frise > span > a.thiga {
-  background: url('../images/img_nav_logo_thiga.png');
+  background: url('../images/thiga/img_nav_logo_thiga.png');
   width: 86px;
   height: 40px;
 }
@@ -206,25 +259,25 @@ p {
 .wrapper.thiga .page-indicator-thiga {
   background-color: white;
 }
-.wrapper.thiga .prev-page,
-.wrapper.thiga .next-page {
-  background-color: #68e3e0;
-}
 .wrapper.thiga .headers {
   left: -3072px;
 }
+.wrapper.thiga .knowing-more .emphasized {
+  color: #19d8ce;
+}
 .thiga-header {
-  background-color: #30d7cf;
+  background-color: #19d8ce;
 }
 .thiga-header-logo {
   position: absolute;
   top: 70px;
-  left: 463.5px;
+  left: 380px;
 }
 .thiga-description {
   position: absolute;
+  text-align: center;
   top: 185px;
-  left: 320px;
+  left: 204px;
   width: 620px;
 }
 .thiga-description h1 {
@@ -277,16 +330,15 @@ p {
 .wrapper.ux .page-indicator-ux {
   background-color: white;
 }
-.wrapper.ux .prev-page,
-.wrapper.ux .next-page {
-  background-color: #acaa9b;
-}
 .wrapper.ux .headers {
   left: -1024px;
 }
+.wrapper.ux .knowing-more .emphasized {
+  color: #000000;
+}
 .ux-header {
   background-color: #9b8d70;
-  background-image: url('../images/ux-background.jpg');
+  background-image: url('../images/ux/img_header_ux-republic.png');
 }
 .ux-header-logo {
   opacity: 0.7;
@@ -313,12 +365,11 @@ p {
 .wrapper.xebia {
   background-color: #b39ab8;
 }
-.wrapper.xebia .prev-page,
-.wrapper.xebia .next-page {
-  background-color: #9850a6;
-}
 .wrapper.xebia .page-indicator-xebia {
   background-color: white;
+}
+.wrapper.xebia .knowing-more .emphasized {
+  color: #5d0065;
 }
 .xebia-header {
   background-color: #5c016a;
@@ -331,67 +382,10 @@ p {
 .xebia-header .hello-laptop {
   position: absolute;
   top: 80px;
-  left: 115px;
+  left: 95px;
 }
 .xebia-header .xebia-description {
   position: absolute;
   top: 65px;
   left: 615px;
-  color: white;
-  border-top: 1px solid white;
-  width: 305px;
-  text-align: center;
-}
-.xebia-header .xebia-description h1,
-.xebia-header .xebia-description h2 {
-  text-transform: uppercase;
-  text-align: justify;
-  padding: 0;
-  margin: 0;
-}
-.xebia-header .xebia-description h1 {
-  font: 2.25em 'UbuntuRegular', Arial, sans-serif;
-  margin-top: 10px;
-}
-.xebia-header .xebia-description h2 {
-  font: 1.4em 'UbuntuRegular', Arial, sans-serif;
-}
-.xebia-header .xebia-description .sub-description {
-  margin-top: 10px;
-  border-bottom: 1px solid white;
-  position: relative;
-}
-.xebia-header .xebia-description .sub-description .line-left,
-.xebia-header .xebia-description .sub-description .line-right {
-  position: absolute;
-  top: 0.7em;
-  border-top: 1px solid white;
-}
-.xebia-header .xebia-description .sub-description .line-left {
-  left: 0;
-  right: 73%;
-}
-.xebia-header .xebia-description .sub-description .line-right {
-  right: 0;
-  left: 73%;
-}
-.xebia-header .xebia-description .sub-description .delivers {
-  text-transform: uppercase;
-  width: 40%;
-  display: inline-block;
-  font: 1.4em 'UbuntuLight', Arial, sans-serif;
-}
-.xebia-header .xebia-description .sub-description .custom-made {
-  margin-top: 10px;
-  background-color: white;
-  color: #5c016a;
-  font: 2em 'UbuntuItalic', Arial, sans-serif;
-  height: 45px;
-  line-height: 45px;
-}
-.xebia-header .xebia-description .sub-description .software {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font: 0.96em 'UbuntuRegular', Arial, sans-serif;
 }

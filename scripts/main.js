@@ -55,6 +55,13 @@
                 self.navigate(nextPage);
             });
 
+            $('.page-indicators > span').click(function() {
+                var nextPageIndex = $('.page-indicators > span').index(this);
+                var nextPage = PAGES[nextPageIndex];
+
+                self.navigate(nextPage);
+            });
+
             setInterval(function () {
          //       goToNextPage();
             }, 10000);

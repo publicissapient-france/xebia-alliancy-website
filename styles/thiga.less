@@ -1,10 +1,12 @@
 @import 'mixins.less';
 @import 'vars.less';
 
-@thigaHeaderColor: #30D7CF;
+@thigaHeaderColor: #19D8CE;
 
 @thigaBackColor: #B2F0EF;
 @thigaButtonColor: #68E3E0;
+
+@thigaEmphasizedFontColor:#19D8CE;
 
 .headers > div.thiga-header {
   left: 3 * @minWidth;
@@ -17,14 +19,13 @@
     background-color: white;
   }
 
-  .prev-page, .next-page {
-    background-color: @thigaButtonColor;
-  }
-
   .headers {
     left: -3 * @minWidth;
   }
 
+  .knowing-more .emphasized {
+    color: @thigaEmphasizedFontColor
+  }
 }
 
 .thiga-header {
@@ -33,19 +34,20 @@
 
 .thiga-header-logo {
   position: absolute;
-  top:70px;
-  left:(@minWidth - 97px)/2
+  top: 70px;
+  left: 380px;
 }
 
 .thiga-description {
-  position:absolute;
-  top:185px;
-  left:320px;
-  width:620px;
+  position: absolute;
+  text-align: center;
+  top: 185px;
+  left: 204px;
+  width: 620px;
   h1 {
-    color:white;
+    color: white;
     text-transform: uppercase;
-    font-size:1.5em;
+    font-size: 1.5em;
   }
 }
 

@@ -5,6 +5,7 @@
 
 @uxBackColor: #BCBCBC;
 @uxButtonColor: #ACAA9B;
+@uxEmphasizedFontColor: #000000;
 
 .headers > div.ux-header {
   left: @minWidth;
@@ -17,19 +18,18 @@
     background-color: white;
   }
 
-  .prev-page, .next-page {
-    background-color: @uxButtonColor;
-  }
-
   .headers {
     left: -@minWidth;
   }
 
+  .knowing-more .emphasized {
+    color: @uxEmphasizedFontColor
+  }
 }
 
 .ux-header {
   background-color: @uxHeaderColor;
-  background-image: url('../images/ux-background.jpg');
+  background-image: url('../images/ux/img_header_ux-republic.png');
 }
 
 .ux-header-logo {
