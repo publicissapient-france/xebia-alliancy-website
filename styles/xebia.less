@@ -10,16 +10,14 @@
 
 .wrapper.xebia {
 
-  .page-indicator-xebia {
+  .general-navigation .page-indicator-xebia {
     background-color: white;
   }
 
   .headers {
 
     & > div.xebia-header {
-      .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
       display: block;
-      text-align: center;
     }
   }
 
@@ -35,6 +33,11 @@
 @xebiaLogoLaptopWidth: 469px;
 @xebiaLogoTexteWidth: 347px;
 
+.xebia-header {
+  .gradient(@xebiaTopHeaderColor, @xebiaBottomHeaderColor);
+  text-align: center;
+}
+
 .xebia-wrapper {
   margin-right: auto;
   margin-left: auto;
@@ -46,7 +49,7 @@
 
   .hello-laptop {
     width: @xebiaLogoLaptopWidth;
-    float:left;
+    float: left;
   }
 
   .xebia-description {

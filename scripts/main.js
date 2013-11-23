@@ -37,6 +37,7 @@
             //bug qui fait que l'animation ne se déclenche pas
             var $headers = $('.headers');
             $headers.css('left', $headers.css('left'));
+            $headers.find('> div').css('display','block');
 
             var goToNextPage = function () {
                 var currentIndex = _.findIndex(PAGES, function (page) {

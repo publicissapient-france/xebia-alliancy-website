@@ -6,7 +6,7 @@
 @thigaBackColor: #B2F0EF;
 @thigaButtonColor: #68E3E0;
 
-@thigaEmphasizedFontColor:#19D8CE;
+@thigaEmphasizedFontColor: #19D8CE;
 
 .headers > div.thiga-header {
   left: 3 * @minWidth;
@@ -14,7 +14,7 @@
 
 .wrapper.thiga {
 
-  .page-indicator-thiga {
+  .general-navigation .page-indicator-thiga {
     background-color: white;
   }
 
@@ -22,9 +22,7 @@
     left: -3 * @minWidth;
 
     & > div.thiga-header {
-      background-color: @thigaHeaderColor;
-      display:block;
-      text-align: center;
+      display: block;
     }
   }
 
@@ -37,8 +35,13 @@
   }
 }
 
+.thiga-header {
+  background-color: @thigaHeaderColor;
+  text-align: center;
+}
+
 .thiga-header-logo {
-  margin-top:90px;
+  margin-top: 90px;
 }
 
 .thiga-description {

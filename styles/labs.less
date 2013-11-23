@@ -13,7 +13,7 @@
 
 .wrapper.labs {
 
-  .page-indicator-labs {
+  .general-navigation .page-indicator-labs {
     background-color: white;
   }
 
@@ -21,9 +21,8 @@
     left: -2 * @minWidth;
 
     & > div.labs-header {
-      background-image: url('../images/labs/img_Header_Xebialabs.png');
       display: block;
-      text-align: center;
+
     }
   }
 
@@ -34,6 +33,11 @@
   .content {
     background-color: @labsBackColor;
   }
+}
+
+.labs-header {
+  background-image: url('../images/labs/img_Header_Xebialabs.png');
+  text-align: center;
 }
 
 .labs-header-logo {

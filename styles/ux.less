@@ -12,7 +12,7 @@
 .wrapper.ux {
   //background-color: @uxBackColor;
 
-  .page-indicator-ux {
+  .general-navigation .page-indicator-ux {
     background-color: white;
   }
 
@@ -20,9 +20,7 @@
     left: -@minWidth;
 
     & > div.ux-header {
-      background-image: url('../images/ux/img_header_ux-republic.png');
       display: block;
-      text-align: center;
     }
   }
 
@@ -37,6 +35,11 @@
 
 @uxLogoWidth: 190px;
 @uxTextWidth: 370px;
+
+.ux-header {
+  background-image: url('../images/ux/img_header_ux-republic.png');
+  text-align: center;
+}
 
 .ux-wrapper {
   margin-right: auto;
