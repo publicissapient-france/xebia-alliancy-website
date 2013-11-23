@@ -14,6 +14,7 @@
             this.currentPage = currentPage;
             this.initRouting();
             this.initNavigation();
+            this.initBlocks();
         },
         initRouting: function () {
             var self = this;
@@ -23,6 +24,12 @@
                     self.goToPage(page);
                 }
             }
+        },
+        initBlocks: function() {
+            $('#blockContent').isotope({
+                itemSelector : '.block',
+                layoutMode : 'fitRows'
+            });
         },
         initNavigation: function () {
             var self = this;

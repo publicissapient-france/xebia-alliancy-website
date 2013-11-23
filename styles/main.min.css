@@ -16,6 +16,9 @@
 .wrapper.labs .knowing-more .emphasized {
   color: #046586;
 }
+.wrapper.labs .content {
+  background-color: #e0e0e0;
+}
 .labs-header {
   background-color: #bad6e2;
   background: -webkit-linear-gradient(top, #bad6e2, #f2f2f2);
@@ -134,6 +137,7 @@ p {
 }
 .wrapper header .prev-page > span,
 .wrapper header .next-page > span {
+  color: #DDD;
   position: relative;
   bottom: 2px;
 }
@@ -247,6 +251,28 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.collaborators-count-block {
+  margin: 20px;
+  background-color: #1C7975;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  height: 295px;
+  width: 215px;
+}
+.collaborators-count-block .collaborators-count {
+  height: 230px;
+  font-size: 6em;
+  line-height: 230px;
+}
+.collaborators-count-block .collaborators-description {
+  font-size: 1.3em;
+  text-transform: uppercase;
 }
 
 
@@ -264,6 +290,9 @@ p {
 }
 .wrapper.thiga .knowing-more .emphasized {
   color: #19d8ce;
+}
+.wrapper.thiga .content {
+  background-color: #b2f0ef;
 }
 .thiga-header {
   background-color: #19d8ce;
@@ -336,6 +365,9 @@ p {
 .wrapper.ux .knowing-more .emphasized {
   color: #000000;
 }
+.wrapper.ux .content {
+  background-color: #bcbcbc;
+}
 .ux-header {
   background-color: #9b8d70;
   background-image: url('../images/ux/img_header_ux-republic.png');
@@ -371,6 +403,9 @@ p {
 .wrapper.xebia .knowing-more .emphasized {
   color: #5d0065;
 }
+.wrapper.xebia .content {
+  background-color: #b39ab8;
+}
 .xebia-header {
   background-color: #5c016a;
   background: -webkit-linear-gradient(top, #5c016a, #820a94);
@@ -387,5 +422,5 @@ p {
 .xebia-header .xebia-description {
   position: absolute;
   top: 65px;
-  left: 615px;
+  left: 585px;
 }
