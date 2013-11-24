@@ -169,6 +169,11 @@ p {
   background-color: #dcdcdc;
   background-color: rgba(220, 220, 220, 0.4);
 }
+.wrapper header .general-navigation .prev-page:hover,
+.wrapper header .general-navigation .next-page:hover {
+  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.5);
+}
 .wrapper header .general-navigation .prev-page > span,
 .wrapper header .general-navigation .next-page > span {
   color: #EEE;
