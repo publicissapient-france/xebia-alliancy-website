@@ -234,11 +234,15 @@ p {
   -moz-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
-  -moz-transition: color 0.5s;
-  -webkit-transition: color 0.5s;
-  -o-transition: color 0.5s;
-  transition: color 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   color: #4e5454;
+}
+.wrapper header .general-navigation .knowing-more a > span:hover {
+  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.8);
 }
 .wrapper header .general-navigation .knowing-more a > span .emphasized {
   font-weight: 700;

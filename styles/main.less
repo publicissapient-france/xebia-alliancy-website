@@ -136,8 +136,14 @@ html, body, h1, h2, h3, p {
           display: inline-block;
           padding: 10px 35px;
           .backgroundRgba(235, 235, 235, 0.7);
+
+          &:hover {
+            .backgroundRgba(240, 240, 240, 0.8);
+          }
+
+
           .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
-          .transition(color 0.5s);
+          .transition(all 0.5s);
           color: @knowMoreFontColor;
 
           .emphasized {
