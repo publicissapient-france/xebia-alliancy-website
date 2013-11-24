@@ -33,9 +33,18 @@
             }
         },
         initBlocks: function () {
-            $('#blockContent').isotope({
-                itemSelector: '.block',
-                layoutMode: 'fitRows'
+
+            var container = document.querySelector('#blockContent');
+            var pckry = new Packery(container, {
+                // options
+                itemSelector: '.block'
+            });
+
+            var itemElems = pckry.getItemElements();
+            _.forEach(itemElems, function (elem) {
+                var draggie = new Draggabilly(elem);
+                // bind Draggabilly events to Packery
+                pckry.bindDraggabillyEvents(draggie);
             });
         },
         initNavigation: function () {
