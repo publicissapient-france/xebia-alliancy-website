@@ -6,7 +6,7 @@ module.exports = (grunt) =>
 		less:
 			production:
 				options:
-					yuicompress: true
+					compress: true
 				files: [
 					src: 'styles/*.less'
 					dest: 'styles/main.min.css'

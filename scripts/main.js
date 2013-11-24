@@ -15,6 +15,7 @@
 
     window.APPLICATION = {
         currentPage: null,
+        navigationIntervalIndex: null,
         init: function (currentPage) {
             this.currentPage = currentPage;
             this.initRouting();
@@ -47,25 +48,8 @@
             $headers.css('left', leftPercentPosition + '%');
             $headers.find('> div').css('display', 'block');
 
-            var goToNextPage = function () {
-                var currentIndex = findPageIndex(self.currentPage);
-
-                var nextPageIndex = (currentIndex >= PAGES.length - 1) ? 0 : currentIndex + 1;
-                var nextPage = PAGES[nextPageIndex];
-
-                self.navigate(nextPage);
-            };
-
-            $('.next-page').click(goToNextPage);
-
-            $('.prev-page').click(function () {
-                var currentIndex = findPageIndex(self.currentPage);
-
-                var nextPageIndex = (currentIndex < 1) ? PAGES.length - 1 : currentIndex - 1;
-                var nextPage = PAGES[nextPageIndex];
-
-                self.navigate(nextPage);
-            });
+            $('.next-page').click(this.goToNextPage.bind(this));
+            $('.prev-page').click(this.goToPrevPage.bind(this));
 
             $('.page-indicators > span').click(function () {
                 var nextPageIndex = $('.page-indicators > span').index(this);
@@ -74,8 +58,29 @@
                 self.navigate(nextPage);
             });
 
-            setInterval(function () {
-                goToNextPage();
+            this.initNavigationInterval();
+        },
+        goToNextPage: function () {
+            var currentIndex = findPageIndex(this.currentPage);
+
+            var nextPageIndex = (currentIndex >= PAGES.length - 1) ? 0 : currentIndex + 1;
+            var nextPage = PAGES[nextPageIndex];
+
+            this.navigate(nextPage);
+        },
+        goToPrevPage: function () {
+            var currentIndex = findPageIndex(this.currentPage);
+
+            var prevPageIndex = (currentIndex < 1) ? PAGES.length - 1 : currentIndex - 1;
+            var prevPage = PAGES[prevPageIndex];
+
+            this.navigate(prevPage);
+        },
+        initNavigationInterval: function () {
+            clearInterval(this.navigationIntervalIndex);
+            var self = this;
+            this.navigationIntervalIndex = setInterval(function () {
+                self.goToNextPage();
             }, 10000);
         },
         goToPage: function (pageToGo) {
@@ -90,6 +95,7 @@
             }, 500, function () {
                 self.currentPage = pageToGo.page;
             });
+            this.initNavigationInterval();
         },
         navigate: function (page) {
             this.goToPage(page);
