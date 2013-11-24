@@ -41,13 +41,13 @@
 }
 
 .headers > div.labs-header {
-  left: 2048px;
+  left: 200%;
 }
 .wrapper.labs .general-navigation .page-indicator-labs {
   background-color: white;
 }
 .wrapper.labs .headers {
-  left: -2048px;
+  left: -200%;
 }
 .wrapper.labs .headers > div.labs-header {
   display: block;
@@ -318,13 +318,13 @@ p {
 
 
 .headers > div.thiga-header {
-  left: 3072px;
+  left: 300%;
 }
 .wrapper.thiga .general-navigation .page-indicator-thiga {
   background-color: white;
 }
 .wrapper.thiga .headers {
-  left: -3072px;
+  left: -300%;
 }
 .wrapper.thiga .headers > div.thiga-header {
   display: block;
@@ -392,13 +392,13 @@ p {
 }
 
 .headers > div.ux-header {
-  left: 1024px;
+  left: 100%;
 }
 .wrapper.ux .general-navigation .page-indicator-ux {
   background-color: white;
 }
 .wrapper.ux .headers {
-  left: -1024px;
+  left: -100%;
 }
 .wrapper.ux .headers > div.ux-header {
   display: block;

@@ -73,7 +73,7 @@
             });
 
             setInterval(function () {
-                goToNextPage();
+          //      goToNextPage();
             }, 10000);
         },
         goToPage: function (pageToGo) {
@@ -84,7 +84,7 @@
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
 
             $('.headers').animate({
-                left: (-indexOfPage * 1024) + 'px'
+                left: (-indexOfPage * 100) + '%'
             }, 500, function () {
                 self.currentPage = pageToGo.page;
             });
