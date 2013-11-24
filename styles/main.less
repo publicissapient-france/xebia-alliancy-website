@@ -233,14 +233,50 @@ html, body, h1, h2, h3, p {
   }
 }
 
-.djerba-block {
-  background-color: red;
-  height: 400px;
-  width: 500px;
-  .title-block {
-    height: 5%;
-  }
+.standard-block {
+  background-color: white;
+
   .content-block {
-    height: 95%;
+    position:relative;
+  }
+
+  .bottom-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 15px solid white;
+    position:absolute;
+    left:10%;
+
+  }
+
+  .title-block {
+    margin: 5px;
+    padding:5px;
+
+
+    &.xebia-title {
+      background-color: #702965;
+      color: white;
+      font-family: 'Oxygen', sans-serif;
+      text-transform: uppercase;
+      .clearFloat();
+
+      time {
+        float: right;
+        text-transform: none;
+      }
+    }
+  }
+
+  h1, h2 {
+    margin: 2px 5px;
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  h1 {
+    text-transform: uppercase;
   }
 }

@@ -304,16 +304,47 @@ p {
   font-size: 1.3em;
   text-transform: uppercase;
 }
-.djerba-block {
-  background-color: red;
-  height: 400px;
-  width: 500px;
+.standard-block {
+  background-color: white;
 }
-.djerba-block .title-block {
-  height: 5%;
+.standard-block .content-block {
+  position: relative;
 }
-.djerba-block .content-block {
-  height: 95%;
+.standard-block .bottom-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid white;
+  position: absolute;
+  left: 10%;
+}
+.standard-block .title-block {
+  margin: 5px;
+  padding: 5px;
+}
+.standard-block .title-block.xebia-title {
+  background-color: #702965;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+  text-transform: uppercase;
+}
+.standard-block .title-block.xebia-title:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.standard-block .title-block.xebia-title time {
+  float: right;
+  text-transform: none;
+}
+.standard-block h1,
+.standard-block h2 {
+  margin: 2px 5px;
+  font-family: 'Oxygen', sans-serif;
+}
+.standard-block h1 {
+  text-transform: uppercase;
 }
 
 
