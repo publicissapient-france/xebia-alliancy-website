@@ -520,6 +520,11 @@ p {
   width: 469px;
   float: left;
 }
+@media (max-width: 900px) {
+  .xebia-wrapper .hello-laptop {
+    display: none;
+  }
+}
 .xebia-wrapper .xebia-description {
   width: 347px;
 }
