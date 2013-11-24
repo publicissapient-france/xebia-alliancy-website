@@ -53,6 +53,9 @@
     opacity: 0.7;
     width: @uxLogoWidth;
     float: left;
+    @media (max-width: @friseMaxWidthOnTwoLines) {
+      float:none;
+    }
   }
 
   .ux-description {
@@ -62,6 +65,10 @@
     text-transform: uppercase;
     max-width: @uxTextWidth;
     display: inline-block;
+
+    @media (max-width: @friseMaxWidthOnTwoLines) {
+      display:none;
+    }
 
     .top-description {
       font-size: 2.1em;

@@ -42,7 +42,9 @@
 
             //bug qui fait que l'animation ne se déclenche pas
             var $headers = $('.headers');
-            $headers.css('left', $headers.css('left'));
+
+            var leftPercentPosition = ($headers.css('left').replace('px', '') << 0) * 100 / $headers.width();
+            $headers.css('left', leftPercentPosition + '%');
             $headers.find('> div').css('display', 'block');
 
             var goToNextPage = function () {

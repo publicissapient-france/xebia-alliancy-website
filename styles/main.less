@@ -23,6 +23,12 @@ html, body, h1, h2, h3, p {
 
     .company {
       height: @headerTotalHeight;
+      @media (max-width: @friseMaxWidthOnTwoLines) {
+        height: @headerTotalHeight + @friseHeight; //la taille de la frise va doubler
+      }
+      @media (max-width: @friseMaxWidthOnFourLines) {
+        height: @headerTotalHeight + 3*@friseHeight; //la taille de la frise va doubler
+      }
       overflow: hidden;
 
       .headers {
@@ -113,7 +119,14 @@ html, body, h1, h2, h3, p {
         left: 0;
         right: 0;
 
-        bottom: 115px;
+        @knowingMorePositon: 115px;
+        bottom: @knowingMorePositon;
+        @media (max-width: @friseMaxWidthOnTwoLines) {
+          bottom: @knowingMorePositon + @friseHeight;
+        }
+        @media (max-width: @friseMaxWidthOnFourLines) {
+          bottom: @knowingMorePositon + 3*@friseHeight;
+        }
         text-align: center;
 
         a > span {
@@ -137,7 +150,15 @@ html, body, h1, h2, h3, p {
       .page-indicators {
 
         position: absolute;
-        bottom: 80px;
+        @pageIndicatorsPosition: 80px;
+        bottom: @pageIndicatorsPosition;
+        @media (max-width: @friseMaxWidthOnTwoLines) {
+          bottom: @pageIndicatorsPosition + @friseHeight;
+        }
+        @media (max-width: @friseMaxWidthOnFourLines) {
+          bottom: @pageIndicatorsPosition + 3*@friseHeight;
+        }
+
         left: 0;
         right: 0;
         text-align: center;
@@ -241,7 +262,7 @@ html, body, h1, h2, h3, p {
   background-color: white;
 
   .content-block {
-    position:relative;
+    position: relative;
   }
 
   .bottom-arrow {
@@ -251,15 +272,14 @@ html, body, h1, h2, h3, p {
     border-right: 10px solid transparent;
 
     border-top: 15px solid white;
-    position:absolute;
-    left:10%;
+    position: absolute;
+    left: 10%;
 
   }
 
   .title-block {
     margin: 5px;
-    padding:5px;
-
+    padding: 5px;
 
     &.xebia-title {
       background-color: #702965;

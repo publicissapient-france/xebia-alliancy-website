@@ -65,12 +65,22 @@
 .labs-header-logo {
   margin-top: 90px;
 }
+@media (max-width: 500px) {
+  .labs-header-logo {
+    display: none;
+  }
+}
 .labs-description {
   color: #046586;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
   font-family: 'Oxygen', sans-serif;
+}
+@media (max-width: 620px) {
+  .labs-description {
+    display: none;
+  }
 }
 .labs-description h1 {
   font-weight: bold;
@@ -109,6 +119,16 @@ p {
 .wrapper header .company {
   height: 482px;
   overflow: hidden;
+}
+@media (max-width: 700px) {
+  .wrapper header .company {
+    height: 542px;
+  }
+}
+@media (max-width: 350px) {
+  .wrapper header .company {
+    height: 662px;
+  }
 }
 .wrapper header .company .headers {
   height: 100%;
@@ -193,6 +213,16 @@ p {
   bottom: 115px;
   text-align: center;
 }
+@media (max-width: 700px) {
+  .wrapper header .general-navigation .knowing-more {
+    bottom: 175px;
+  }
+}
+@media (max-width: 350px) {
+  .wrapper header .general-navigation .knowing-more {
+    bottom: 295px;
+  }
+}
 .wrapper header .general-navigation .knowing-more a > span {
   text-transform: uppercase;
   font-family: 'Oxygen', sans-serif;
@@ -223,6 +253,16 @@ p {
   left: 0;
   right: 0;
   text-align: center;
+}
+@media (max-width: 700px) {
+  .wrapper header .general-navigation .page-indicators {
+    bottom: 140px;
+  }
+}
+@media (max-width: 350px) {
+  .wrapper header .general-navigation .page-indicators {
+    bottom: 260px;
+  }
 }
 .wrapper header .general-navigation .page-indicators > span {
   cursor: pointer;
@@ -384,6 +424,11 @@ p {
   margin-right: auto;
   margin-left: auto;
 }
+@media (max-width: 580px) {
+  .thiga-description {
+    display: none;
+  }
+}
 .thiga-description h1 {
   color: white;
   text-transform: uppercase;
@@ -467,6 +512,11 @@ p {
   width: 190px;
   float: left;
 }
+@media (max-width: 700px) {
+  .ux-wrapper .ux-header-logo {
+    float: none;
+  }
+}
 .ux-wrapper .ux-description {
   margin-top: 21px;
   margin-left: -25px;
@@ -474,6 +524,11 @@ p {
   text-transform: uppercase;
   max-width: 370px;
   display: inline-block;
+}
+@media (max-width: 700px) {
+  .ux-wrapper .ux-description {
+    display: none;
+  }
 }
 .ux-wrapper .ux-description .top-description {
   font-size: 2.1em;
@@ -514,7 +569,7 @@ p {
   margin-left: auto;
   max-width: 826px;
   position: relative;
-  top: 75px;
+  top: 88px;
 }
 .xebia-wrapper:after {
   clear: both;
@@ -532,4 +587,9 @@ p {
 }
 .xebia-wrapper .xebia-description {
   width: 347px;
+}
+@media (max-width: 450px) {
+  .xebia-wrapper .xebia-description {
+    display: none;
+  }
 }
