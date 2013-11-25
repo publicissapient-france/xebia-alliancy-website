@@ -21,7 +21,26 @@
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
+            this.initStickyHeader();
 
+        },
+        initStickyHeader: function () {
+            var $window = $(window);
+            var $header = $('header');
+            var headerBottomPosition = $header.position().top + $header.height();
+            var $frise = $('.frise');
+            var stickyThreshold = headerBottomPosition - $frise.height();
+            $window.scroll(function () {
+                if ($window.scrollTop() > stickyThreshold) {
+                    $frise.css({
+                        position: 'fixed',
+                        top: 0,
+                        bottom: 'inherit'
+                    });
+                } else {
+                    $frise.attr('style', '');
+                }
+            });
         },
         initRouting: function () {
             var self = this;

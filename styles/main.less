@@ -189,6 +189,8 @@ html, body, h1, h2, h3, p {
         bottom: 0;
         min-height: @friseHeight;
         width: 100%;
+        z-index:1;
+
         > span {
           display: inline-block;
           min-width: 170px;
@@ -233,6 +235,7 @@ html, body, h1, h2, h3, p {
 
   .content {
     .transition(background-color 0.5s);
+    z-index:-1;
   }
 
 }
