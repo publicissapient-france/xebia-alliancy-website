@@ -13,7 +13,7 @@ html, body, h1, h2, h3, p {
 
 .wrapper {
   margin: 0 auto;
-  max-width: @minWidth;
+  max-width: @maxWidth;
   min-height: 100%;
   position: relative;
   .transition(background-color 0.5s);
@@ -33,7 +33,7 @@ html, body, h1, h2, h3, p {
 
       .headers {
         height: 100%;
-        max-width: @minWidth;
+        max-width: @maxWidth;
 
         position: relative;
         > div {
@@ -189,6 +189,7 @@ html, body, h1, h2, h3, p {
         bottom: 0;
         min-height: @friseHeight;
         width: 100%;
+        max-width: @maxWidth;
         z-index:1;
 
         > span {
@@ -235,7 +236,7 @@ html, body, h1, h2, h3, p {
 
   .content {
     .transition(background-color 0.5s);
-    z-index:-1;
+    //z-index:-1;
   }
 
 }

@@ -50,7 +50,7 @@
   h1 {
     text-transform: uppercase;
     margin-top: 20px;
-    margin-left:15px;
+    margin-left: 15px;
     min-height: 60px;
   }
   h2 {
@@ -58,13 +58,15 @@
   }
 
   .illustration {
-   display: block;
-    margin:0 auto;
-    @media (max-width: 500px) {
-      width:400px;
-    }
-    @media (max-width: 400px) {
-      width:300px;
+    display: block;
+    margin: 0 auto;
+    &.big-illustration {
+      @media (max-width: 500px) {
+        width: 400px;
+      }
+      @media (max-width: 400px) {
+        width: 300px;
+      }
     }
   }
 }
