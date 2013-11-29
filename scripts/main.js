@@ -13,6 +13,56 @@
         });
     };
 
+    var formatDateIso = function (date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDay();
+
+        return '' + year + '-' + month + '-' + day;
+    };
+
+
+    var MONTH_SHORT = {
+        '1': 'Jan',
+        '2': 'Feb',
+        '3': 'Mar',
+        '4': 'Apr',
+        '5': 'May',
+        '6': 'Jun',
+        '7': 'Jul',
+        '8': 'Aug',
+        '9': 'Sep',
+        '10': 'Oct',
+        '11': 'Nov',
+        '12': 'Dec'
+    };
+    var formatDateTitle = function (date) {
+        var year = date.getFullYear();
+        var monthNum = date.getMonth() + 1;
+        var month = MONTH_SHORT['' + monthNum];
+        var day = date.getDay();
+
+        return '' + day + ' ' + month + ' ' + year;
+    };
+
+    var createStandardBlock = function (entity, date, title, img, altImg) {
+        var template = '<section class="block standard-block eventbrite-block" style="opacity:1;display:inline-block;">';
+        template += '<div class="title-block xebia-title">' + entity;
+
+        template += '<time datetime="' + formatDateIso(date) + '">' + formatDateTitle(date) + '</time>';
+        template += '</div>';
+        template += '<div class="content-block">';
+        template += '<h1>' + title + '</h1>';
+
+        template += '<div class="bottom-arrow"></div>';
+        template += '<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>';
+        template += '</div>';
+        template += '</section>';
+
+        return template;
+
+    };
+
     window.APPLICATION = {
         currentPage: null,
         navigationIntervalIndex: null,
@@ -53,11 +103,36 @@
         },
         initBlocks: function () {
 
+            this.initEventbriteBlock();
+
             var $blockContent = $('#blockContent');
             $blockContent.mixitup({
                 targetSelector: '.block'
             });
             $blockContent.sortable();
+        },
+        initEventbriteBlock: function () {
+            Eventbrite({'app_key': 'UW2IBMBZKW4U6EPHQK'}, function (ebClient) {
+                ebClient.organizer_list_events({'id': 1627902102 }, function (response) {
+                    if (response.events && response.events.length > 0) {
+                        var now = new Date().getTime();
+                        var nextEvent = _.find(response.events, function (eventWrapper) {
+                            var event = eventWrapper.event;
+                            var startDate = new Date(event.start_date);
+
+                            return startDate.getTime() > now;
+                        });
+                        if (nextEvent) {
+
+                            var event = nextEvent.event;
+
+                            var eventBriteBlock = createStandardBlock('Xebia', new Date(event.start_date), event.title, event.logo, 'logo ' + event.title);
+                            $('#blockContent').append(eventBriteBlock);
+                        }
+                    }
+                });
+            });
+
         },
         initNavigation: function () {
             var self = this;
