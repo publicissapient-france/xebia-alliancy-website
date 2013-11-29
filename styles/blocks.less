@@ -1,8 +1,14 @@
 @import 'mixins.less';
 
 .block {
+  opacity: 0;
+  display: none;
+  vertical-align: top;
+
   margin: 10px;
+  height:370px;
   .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
+  min-width:150px;
 }
 
 .standard-block {
@@ -77,10 +83,10 @@
   color: white;
   font-family: 'Oxygen', sans-serif;
   text-align: center;
-  height: 295px;
+
   width: 215px;
 
-  @collaboratorHeight: 230px;
+  @collaboratorHeight: 300px;
   .collaborators-count {
     height: @collaboratorHeight;
     font-size: 6em;
@@ -93,3 +99,11 @@
   }
 }
 
+.djerba-block {
+  h1 {
+    min-height: 101px;
+  }
+  img {
+    height:212px;
+  }
+}

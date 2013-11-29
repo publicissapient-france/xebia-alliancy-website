@@ -53,18 +53,11 @@
         },
         initBlocks: function () {
 
-            var container = document.querySelector('#blockContent');
-            var pckry = new Packery(container, {
-                // options
-                itemSelector: '.block'
+            var $blockContent = $('#blockContent');
+            $blockContent.mixitup({
+                targetSelector: '.block'
             });
-
-            var itemElems = pckry.getItemElements();
-            _.forEach(itemElems, function (elem) {
-                var draggie = new Draggabilly(elem);
-                // bind Draggabilly events to Packery
-                pckry.bindDraggabillyEvents(draggie);
-            });
+            $blockContent.sortable();
         },
         initNavigation: function () {
             var self = this;
