@@ -45,23 +45,29 @@
         return '' + day + ' ' + month + ' ' + year;
     };
 
-    var createStandardBlock = function (entity, date, title, img, altImg) {
-        var template = '<section class="block standard-block eventbrite-block" style="opacity:1;display:inline-block;">';
-        template += '<div class="title-block xebia-title">' + entity;
+    var parseEventBriteDate = function (eventBriteDate) {
+        var year = parseInt(eventBriteDate.substr(0, 4), 10);
+        var month = parseInt(eventBriteDate.substr(5, 2), 10) - 1;
+        var day = parseInt(eventBriteDate.substr(8, 2), 10);
 
-        template += '<time datetime="' + formatDateIso(date) + '">' + formatDateTitle(date) + '</time>';
-        template += '</div>';
-        template += '<div class="content-block">';
-        template += '<h1>' + title + '</h1>';
+        var hour = parseInt(eventBriteDate.substr(11, 2), 10);
+        var minute = parseInt(eventBriteDate.substr(14, 2), 10);
+        var second = parseInt(eventBriteDate.substr(17, 2), 10);
 
-        template += '<div class="bottom-arrow"></div>';
-        template += '<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>';
-        template += '</div>';
-        template += '</section>';
-
-        return template;
-
+        return new Date(year, month, day, hour, minute, second);
     };
+
+
+    var updateEventbriteBlock = function (entity, date, title, img, altImg) {
+        var $eventBriteBlock = $('.eventbrite-block');
+        $eventBriteBlock.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
+        $eventBriteBlock.find('h1').html(title);
+
+        var $contentBlock = $eventBriteBlock.find('.content-block');
+        $contentBlock.append('<div class="bottom-arrow"></div>');
+        $contentBlock.append('<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>');
+    };
+
 
     window.APPLICATION = {
         currentPage: null,
@@ -112,23 +118,45 @@
             $blockContent.sortable();
         },
         initEventbriteBlock: function () {
+
+            var i = 0;
+            var eventBriteInterval = setInterval(function () {
+                var text = 'LOADING.';
+                if (i == 2) {
+                    text += '..';
+                    i = 0;
+                } else {
+                    if (i == 1) {
+                        text += '.';
+                    }
+                    i++;
+                }
+                $('.eventbrite-block h1').html(text);
+
+            }, 500);
+
             Eventbrite({'app_key': 'UW2IBMBZKW4U6EPHQK'}, function (ebClient) {
                 ebClient.organizer_list_events({'id': 1627902102 }, function (response) {
+                    clearInterval(eventBriteInterval);
                     if (response.events && response.events.length > 0) {
                         var now = new Date().getTime();
                         var nextEvent = _.find(response.events, function (eventWrapper) {
                             var event = eventWrapper.event;
-                            var startDate = new Date(event.start_date);
+                            var startDate = parseEventBriteDate(event.start_date);
+
 
                             return startDate.getTime() > now;
                         });
+
                         if (nextEvent) {
 
                             var event = nextEvent.event;
 
-                            var eventBriteBlock = createStandardBlock('Xebia', new Date(event.start_date), event.title, event.logo, 'logo ' + event.title);
-                            $('#blockContent').append(eventBriteBlock);
+                            updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.logo, 'logo ' + event.title);
+
                         }
+                    } else {
+                        $('.eventbrite-block').remove();
                     }
                 });
             });
