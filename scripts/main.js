@@ -136,7 +136,8 @@
             }, 500);
 
             Eventbrite({'app_key': 'UW2IBMBZKW4U6EPHQK'}, function (ebClient) {
-                ebClient.organizer_list_events({'id': 1627902102 }, function (response) {
+                //http://developer.eventbrite.com/doc/organizers/organizer_list_events/
+                ebClient.organizer_list_events({id: 1627902102, only_display: 'start_date, title, logo'}, function (response) {
                     clearInterval(eventBriteInterval);
                     if (response.events && response.events.length > 0) {
                         var now = new Date().getTime();
@@ -149,11 +150,8 @@
                         });
 
                         if (nextEvent) {
-
                             var event = nextEvent.event;
-
                             updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.logo, 'logo ' + event.title);
-
                         }
                     } else {
                         $('.eventbrite-block').remove();
