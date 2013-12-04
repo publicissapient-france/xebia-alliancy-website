@@ -1,10 +1,14 @@
 @import 'mixins.less';
 
+@xebiaBlockColor: #702965;
+
+@blockHeight: 330px;
+@titleHeight: 20px;
 .block {
   opacity: 0;
   display: none;
   vertical-align: top;
-  height: 310px;
+  height: @blockHeight;
   margin: 10px;
 
   .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
@@ -13,6 +17,7 @@
 
 .standard-block {
   background-color: white;
+  overflow: scroll;
 
   .content-block {
     position: relative;
@@ -31,12 +36,12 @@
   }
 
   .title-block {
-    height: 20px;
+    height: @titleHeight;
     margin: 5px;
     padding: 5px;
 
     &.xebia-title {
-      background-color: #702965;
+      background-color: @xebiaBlockColor;
       color: white;
       font-family: 'Oxygen', sans-serif;
       text-transform: uppercase;
@@ -105,7 +110,7 @@
 
 .djerba-block {
   h1 {
-    min-height: 41px;
+    min-height: 61px;
   }
   img {
     height: 212px;
@@ -115,9 +120,66 @@
 .eventbrite-block {
 
   h1 {
-    min-height: 133px;
+    min-height: 153px;
   }
   img {
-    height:120px;
+    height: 120px;
+  }
+}
+
+.interview-luc-block {
+  width: 510px;
+
+  @paddingContent: 15px;
+  img {
+    padding: 0 (@paddingContent - 10px);
+  }
+
+  .content-block {
+    background: url("../images/blocks/img_photo_Luc.jpg") no-repeat bottom right;
+    height: @blockHeight - @titleHeight - 20px;
+    blockquote {
+
+      margin: 0;
+      padding: 0 @paddingContent;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 100;
+      text-transform: uppercase;
+      font-size: 9pt;
+      width: 345px;
+
+      p {
+        margin: 10px 0;
+        strong {
+          font-weight: bold;
+        }
+      }
+
+      .main {
+        margin-top: 0;
+        color: @xebiaBlockColor;
+        font-size: 12pt;
+        font-weight: bold;
+      }
+
+      cite {
+        color: #C1A4C1;
+        font-weight: 100;
+        font-size: 9pt;
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+
+    width: inherit;
+    height:auto;
+    .content-block {
+      background: none;
+      height: inherit;
+      blockquote {
+        width:inherit;
+      }
+    }
   }
 }
