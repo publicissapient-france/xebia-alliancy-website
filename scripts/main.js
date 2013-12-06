@@ -40,7 +40,7 @@
         var year = date.getFullYear();
         var monthNum = date.getMonth() + 1;
         var month = MONTH_SHORT['' + monthNum];
-        var day = date.getDay();
+        var day = date.getDate();
 
         return '' + day + ' ' + month + ' ' + year;
     };
@@ -59,13 +59,21 @@
 
 
     var updateEventbriteBlock = function (entity, date, title, img, altImg) {
-        var $eventBriteBlock = $('.eventbrite-block');
+
+
+        var $eventBriteBlock = $('<section class="block standard-block eventbrite-block"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>');
         $eventBriteBlock.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
         $eventBriteBlock.find('h1').html(title);
 
         var $contentBlock = $eventBriteBlock.find('.content-block');
         $contentBlock.append('<div class="bottom-arrow"></div>');
         $contentBlock.append('<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>');
+
+        $('#blockContent').append($eventBriteBlock);
+        $eventBriteBlock.css('display', 'inline-block');
+        $eventBriteBlock.animate({
+            opacity: 1
+        });
     };
 
 
@@ -119,33 +127,14 @@
         },
         initEventbriteBlock: function () {
 
-            var i = 0;
-            var eventBriteInterval = setInterval(function () {
-                var text = 'LOADING.';
-                if (i == 2) {
-                    text += '..';
-                    i = 0;
-                } else {
-                    if (i == 1) {
-                        text += '.';
-                    }
-                    i++;
-                }
-                $('.eventbrite-block h1').html(text);
-
-            }, 500);
-
             Eventbrite({'app_key': 'UW2IBMBZKW4U6EPHQK'}, function (ebClient) {
                 //http://developer.eventbrite.com/doc/organizers/organizer_list_events/
                 ebClient.organizer_list_events({id: 1627902102, only_display: 'start_date, title, logo'}, function (response) {
-                    clearInterval(eventBriteInterval);
                     if (response.events && response.events.length > 0) {
                         var now = new Date().getTime();
                         var nextEvent = _.find(response.events, function (eventWrapper) {
                             var event = eventWrapper.event;
                             var startDate = parseEventBriteDate(event.start_date);
-
-
                             return startDate.getTime() > now;
                         });
 
@@ -153,9 +142,7 @@
                             var event = nextEvent.event;
                             updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.logo, 'logo ' + event.title);
                         }
-                    } else {
-                        $('.eventbrite-block').remove();
-                    }
+                    } 
                 });
             });
 
