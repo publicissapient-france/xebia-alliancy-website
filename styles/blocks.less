@@ -2,6 +2,8 @@
 
 @xebiaBlockColor: #702965;
 @thigaBlockColor: #30D7CE;
+@labsBlockColor: #408A29;
+@labsBackgroundColor: #DDDCDA;
 
 @blockHeight: 330px;
 @titleHeight: 20px;
@@ -12,7 +14,7 @@
   vertical-align: top;
   height: @blockHeight;
   margin: 10px;
-  cursor:move;
+  cursor: move;
 
   .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
   min-width: 150px;
@@ -41,6 +43,7 @@
     height: @titleHeight;
     margin: 5px;
     padding: 5px;
+    color: white;
 
     font-family: 'Oxygen', sans-serif;
     text-transform: uppercase;
@@ -53,13 +56,14 @@
 
     &.xebia-title {
       background-color: @xebiaBlockColor;
-      color: white;
-
     }
 
     &.thiga-title {
       background-color: @thigaBlockColor;
-      color: white;
+    }
+
+    &.labs-title {
+      background-color: @labsBlockColor;
     }
   }
 
@@ -201,8 +205,9 @@
       margin-left: 4px;
       font-size: 17px;
       font-weight: bold;
-      min-height:20px;
+      min-height: 20px;
       margin-top: 10px;
+
     }
 
     h2 {
@@ -212,6 +217,24 @@
       font-weight: 100;
       font-size: 17px;
       margin-bottom: 9px;
+    }
+  }
+}
+
+.deployit-client-block {
+  .content-block {
+    background-color: @labsBackgroundColor;
+    min-height: 100%;
+    h1 {
+      margin-top: 10px;
+      min-height: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 5px;
+    }
+
+    .logo-deployit {
+      margin-left: 25px;
     }
   }
 }
