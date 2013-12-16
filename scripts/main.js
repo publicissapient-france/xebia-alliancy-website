@@ -140,9 +140,11 @@
 
                         if (nextEvent) {
                             var event = nextEvent.event;
-                            updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.logo, 'logo ' + event.title);
+                            if (event.title) {
+                                updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.logo, 'logo ' + event.title);
+                            }
                         }
-                    } 
+                    }
                 });
             });
 
