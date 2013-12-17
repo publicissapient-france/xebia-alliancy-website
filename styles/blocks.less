@@ -234,14 +234,29 @@
     .logo-deployit {
       margin-left: 25px;
     }
+
+    @media (max-width: 500px) {
+      img.clients {
+        width:90%;
+
+      }
+    }
   }
 }
 
 .thiga-design-thinking-block {
   width: 482px;
+
+  @media (max-width: 482px) {
+    width:auto;
+  }
+
   .content-block {
     height: @blockHeight - @titleHeight - 20px;
     background: url("../images/blocks/img_thiga.jpg") no-repeat bottom right;
+    @media (max-width: 482px) {
+      background: white;
+    }
 
     h1, p {
       margin-left: 10px;
