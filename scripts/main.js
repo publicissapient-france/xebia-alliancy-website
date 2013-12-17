@@ -4,7 +4,7 @@
         {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr'},
         {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com'},
         {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com'},
-        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.com'}
+        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr'}
     ];
 
     var findPageIndex = function (currentPage) {
