@@ -85,7 +85,14 @@
             this.initNavigation();
             this.initBlocks();
             this.initStickyHeader();
+            this.initMenuMobile();
 
+        },
+        initMenuMobile: function() {
+            $('.stripes').click(function() {
+                $(this).toggleClass('on');
+                $('.frise').toggleClass('open');
+            });
         },
         initStickyHeader: function () {
             var $window = $(window);

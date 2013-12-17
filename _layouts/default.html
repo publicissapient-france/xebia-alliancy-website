@@ -26,11 +26,13 @@
 <!--[if lt IE 9]>
 <div class="browser-warning">
     ATTENTION&nbsp;! Le site que vous consultez n'est pas conçu pour un navigateur aussi ancien.
-    Pour votre confort et votre sécurité, nous vous invitons à installer la dernière version d'un des navigateurs suivants&nbsp;:
+    Pour votre confort et votre sécurité, nous vous invitons à installer la dernière version d'un des navigateurs
+    suivants&nbsp;:
     <ul>
         <li><a href="http://www.mozilla.org/fr/firefox/new/" title="Télécharger Firefox">Mozilla Firefox</a></li>
         <li><a href="http://www.google.fr/intl/fr/chrome/browser/" title="Télécharger Chrome">Google Chrome</a></li>
-        <li><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" title="Télécharger Internet Explorer">Microsoft Internet Explorer</a></li>
+        <li><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie"
+               title="Télécharger Internet Explorer">Microsoft Internet Explorer</a></li>
     </ul>
 </div>
 
@@ -40,29 +42,44 @@
         <div class="company">
             {{ content }}
         </div>
+        <div class="inline-menu">
+            <div class="galatic-bar">
+                <span class="thiga-band"></span>
+                <span class="labs-band"></span>
+                <span class="xebia-band"></span>
+                <span class="ux-band"></span>
+            </div>
+            <div class="stripes">
+                <span class="stripe-band"></span>
+                <span class="stripe-band"></span>
+                <span class="stripe-band"></span>
+                <span class="stripe-band"></span>
+            </div>
+        </div>
         <div class="general-navigation">
-
             <div class="alliance-logo"><span>ALLIANCE XEBIA</span></div>
+            <div class="widget-wrapper">
 
-            <div class="prev-page-wrapper">
-                <button class="prev-page"><span>&lt;</span></button>
+                <div class="prev-page-wrapper">
+                    <button class="prev-page"><span>&lt;</span></button>
+                </div>
+
+                <div class="next-page-wrapper">
+                    <button class="next-page"><span>&gt;</span></button>
+                </div>
+
+                <div class="knowing-more">
+                    <a href="{{page.mainUrl}}" title="{{page.classBody}}"><span>En savoir <span
+                            class="emphasized">plus</span></span></a>
+                </div>
+
+                <div class="page-indicators">
+                    <span class="page-indicator-xebia"></span>
+                    <span class="page-indicator-ux"></span>
+                    <span class="page-indicator-labs"></span>
+                    <span class="page-indicator-thiga"></span>
+                </div>
             </div>
-
-            <div class="next-page-wrapper">
-                <button class="next-page"><span>&gt;</span></button>
-            </div>
-
-            <div class="knowing-more">
-                <a href="{{page.mainUrl}}" title="{{page.classBody}}"><span>En savoir <span class="emphasized">plus</span></span></a>
-            </div>
-
-            <div class="page-indicators">
-                <span class="page-indicator-xebia"></span>
-                <span class="page-indicator-ux"></span>
-                <span class="page-indicator-labs"></span>
-                <span class="page-indicator-thiga"></span>
-            </div>
-
             <div class="frise">
                 <span><a class="xebia" href="http://www.xebia.fr"><span>Xebia</span></a></span>
                 <span><a class="ux" href="http://ux-republic.com"><span>UX Republic</span></a></span>
@@ -75,6 +92,13 @@
     <section class="content" id="blockContent">
         {% include blocks.html %}
     </section>
+
+    <footer class="logo-footer">
+        <img src="images/logo-alliance-inverted-color.png">
+        <div class="alliance">
+            XEBIA + XEBIA LABS + THIGA + UX-REPUBLIC
+        </div>
+    </footer>
 </div>
 
 <footer id="footer" class="wrapper">
@@ -93,17 +117,17 @@
     })
 </script>
 <script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-1657252-14']);
-	_gaq.push(['_trackPageview']);
-	(function () {
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript';
-		ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(ga, s);
-	})();
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1657252-14']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 </script>
 </body>
 </html>

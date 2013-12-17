@@ -11,13 +11,17 @@ html, body, h1, h2, h3, p {
   margin: 0;
 }
 
+a, span, div {
+  font-family: 'Oxygen', sans-serif;
+}
+
 .browser-warning {
   background-color: red;
-  color:white;
-  margin:0 auto;
-  min-width:310px;
-  max-width:@maxWidth;
-  padding:5px;
+  color: white;
+  margin: 0 auto;
+  min-width: 310px;
+  max-width: @maxWidth;
+  padding: 5px;
 }
 
 .wrapper {
@@ -29,6 +33,70 @@ html, body, h1, h2, h3, p {
 
   header {
     position: relative;
+
+    .inline-menu {
+      display: none;
+      background-color: #2F2F2F;
+      height: @mobileTopHeight;
+
+      .galatic-bar {
+
+        .labs-band, .xebia-band, .ux-band, .thiga-band {
+          width: 25%;
+          height: 5px;
+          display: block;
+          float: left;
+        }
+
+        .xebia-band {
+          background-color: @xebiaTopHeaderColor;
+        }
+
+        .labs-band {
+          background-color: #8Cb828;
+        }
+
+        .ux-band {
+          background-color: #C5C2C1;
+        }
+
+        .thiga-band {
+          background-color: @thigaHeaderColor;
+        }
+
+        .clearFloat();
+      }
+
+      .stripes {
+        display: inline-block;
+        height: 40px;
+        width: 60px;
+        margin-top: 30px;
+        margin-left: 35px;
+        cursor: pointer;
+
+        &.on .stripe-band {
+          background-color: #19C8CE;
+        }
+
+        .stripe-band {
+          display: block;
+          background-color: white;
+          margin-bottom: 5px;
+          height: 5px;
+        }
+      }
+    }
+
+    @media (max-width: @mobileModeMaxWidth) {
+      .widget-wrapper, .company {
+        display: none;
+      }
+
+      .inline-menu {
+        display: block;
+      }
+    }
 
     .company {
       height: @headerTotalHeight;
@@ -65,6 +133,14 @@ html, body, h1, h2, h3, p {
         position: absolute;
         top: 10px;
         left: 20px;
+
+        @media (max-width: @mobileModeMaxWidth) {
+          position: static;
+          margin: 20px auto;
+          background: url("../images/logo-alliance-color.png");
+          width: 201px;
+          height: 139px;
+        }
 
         > span {
           display: none;
@@ -150,7 +226,6 @@ html, body, h1, h2, h3, p {
             .backgroundRgba(240, 240, 240, 0.8);
           }
 
-
           .box-shadow(0 4px 7px rgba(0, 0, 0, 0.3));
           .transition(all 0.5s);
           color: @knowMoreFontColor;
@@ -199,12 +274,26 @@ html, body, h1, h2, h3, p {
         min-height: @friseHeight;
         width: 100%;
         max-width: @maxWidth;
-        z-index:1;
+        z-index: 1;
+
+        @media (max-width: @mobileModeMaxWidth) {
+          top: @mobileTopHeight;
+          bottom: inherit;
+          overflow: hidden;
+          height: 0;
+          .transition(all 0.5s);
+          min-height: 0;
+
+          &.open {
+            height: 200px;
+          }
+        }
 
         > span {
           display: inline-block;
           min-width: 170px;
           width: 24.5%;
+
           text-align: center;
           vertical-align: middle;
 
@@ -237,9 +326,76 @@ html, body, h1, h2, h3, p {
               display: none;
             }
           }
+
+          @media (max-width: @mobileModeMaxWidth) {
+            display: block;
+            width: auto;
+            min-width: 0;
+
+            > a {
+
+              @linkColor : #929292;
+
+              &.xebia, &.ux, &.labs, &.thiga {
+                background-image: none;
+                height: 50px;
+                line-height: 50px;
+                width: 90%;
+                color: @linkColor;
+                text-decoration: none;
+                > span {
+                  width: 80%;
+                  display: inline-block;
+                  text-align: left;
+                  margin-left: 10%;
+                  text-transform: uppercase;
+
+                }
+                &:hover {
+                  color: white;
+                }
+
+                &:after {
+                  content: '>'
+                }
+              }
+
+              &.xebia, &.ux, &.labs {
+                border-bottom: 1px solid @linkColor;
+
+                &:hover {
+                  border-bottom-color: white;
+                }
+              }
+
+              > span {
+                display: inline;
+              }
+            }
+          }
         }
 
       }
+    }
+  }
+
+  .logo-footer {
+    display: none;
+    text-align: center;
+    margin-top:50px;
+
+    .alliance {
+      @colorAlliance:#8E8E8E;
+      color:@colorAlliance;
+      border-top:1px solid @colorAlliance;
+      margin-top:40px;
+      padding-top:30px;
+      padding-bottom:40px;
+    }
+
+    @media (max-width: @mobileModeMaxWidth) {
+      display: block;
+
     }
   }
 
