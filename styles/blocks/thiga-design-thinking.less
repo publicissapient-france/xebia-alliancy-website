@@ -1,0 +1,51 @@
+@import '../mixins.less';
+@import '../vars.less';
+
+
+.thiga-design-thinking-block {
+  width: 482px;
+
+  @media (max-width: 482px) {
+    width: auto;
+  }
+
+  .content-block {
+    height: @blockHeight - @titleHeight - 20px;
+    @media (max-width: @mobileModeMaxWidth) {
+      height: auto;
+    }
+    background: url("../images/blocks/img_thiga.jpg") no-repeat bottom right;
+    @media (max-width: 482px) {
+      background: white;
+    }
+
+    h1, p {
+      margin-left: 10px;
+      width: 335px;
+
+    }
+
+    h1 {
+      color: #13a8a0;
+      font-weight: bold;
+      font-size: 19px;
+      margin-top: 8px;
+    }
+
+    p {
+      color: #505050;
+      font-size: 13px;
+      font-family: 'Oxygen', sans-serif;
+
+      &.main {
+        font-weight: bold;
+        color: #444444;
+        margin-bottom: 8px;
+      }
+      &.end {
+        margin-top: 7px;
+      }
+    }
+
+  }
+}

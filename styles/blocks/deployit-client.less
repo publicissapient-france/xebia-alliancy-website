@@ -1,0 +1,26 @@
+@import '../mixins.less';
+@import '../vars.less';
+
+.deployit-client-block {
+  .content-block {
+    background-color: @labsBackgroundColor;
+    min-height: 100%;
+    h1 {
+      margin-top: 10px;
+      min-height: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 5px;
+    }
+
+    .logo-deployit {
+      margin-left: 25px;
+    }
+
+    @media (max-width: 500px) {
+      img.clients {
+        width: 90%;
+      }
+    }
+  }
+}

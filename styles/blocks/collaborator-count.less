@@ -1,0 +1,30 @@
+@import '../mixins.less';
+@import '../vars.less';
+
+.collaborators-count-block {
+
+  background-color: #1C7975;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+
+  width: 215px;
+
+  @collaboratorHeight: 240px;
+  .collaborators-count {
+    height: @collaboratorHeight;
+    font-size: 95px;
+    line-height: @collaboratorHeight;
+
+    @media (max-width: @mobileModeMaxWidth) {
+      @collaboratorMobileHeight: 190px;
+      height: @collaboratorMobileHeight;
+      line-height: @collaboratorMobileHeight;
+    }
+  }
+
+  .collaborators-description {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}

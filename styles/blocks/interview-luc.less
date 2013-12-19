@@ -1,0 +1,62 @@
+@import '../mixins.less';
+@import '../vars.less';
+
+.interview-luc-block {
+  width: 510px;
+
+  @paddingContent: 15px;
+  img {
+    padding: 0 (@paddingContent - 10px);
+  }
+
+  .content-block {
+    background: url("../images/blocks/img_photo_Luc.jpg") no-repeat bottom right;
+    height: @blockHeight - @titleHeight - 20px;
+    @media (max-width: @mobileModeMaxWidth) {
+      height: auto;
+    }
+
+    blockquote {
+
+      margin: 0;
+      padding: 0 @paddingContent;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 100;
+
+      font-size: 9pt;
+      width: 330px;
+
+      p {
+        margin: 10px 0;
+      }
+
+      .main {
+        margin-top: 0;
+        color: @xebiaBlockColor;
+        font-size: 12pt;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      cite {
+        color: #C1A4C1;
+        font-weight: 100;
+        font-size: 9pt;
+        font-style: normal;
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+
+    width: inherit;
+    height: auto;
+    .content-block {
+      background: none;
+      height: inherit;
+      blockquote {
+        width: inherit;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ module.exports = (grunt) =>
 				options:
 					compress: true
 				files: [
-					src: 'styles/*.less'
+					src: ['styles/*.less', 'styles/blocks/*.less']
 					dest: 'styles/main.min.css'
 				]
 		uglify:
