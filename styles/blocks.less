@@ -111,6 +111,12 @@
     height: @collaboratorHeight;
     font-size: 95px;
     line-height: @collaboratorHeight;
+
+    @media (max-width: @mobileModeMaxWidth) {
+      @collaboratorMobileHeight: 190px;
+      height: @collaboratorMobileHeight;
+      line-height: @collaboratorMobileHeight;
+    }
   }
 
   .collaborators-description {
