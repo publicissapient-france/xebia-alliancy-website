@@ -115,6 +115,16 @@
 .ux-block {
   width:482px;
   background: url('../images/blocks/img_ux-republic.jpg') bottom;
+  .content-block {
+    display: none;
+  }
+  @media (max-width: @mobileModeMaxWidth) {
+    background:white;
+    width:auto;
+    .content-block {
+      display: block;
+    }
+  }
 }
 
 
