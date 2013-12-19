@@ -100,12 +100,7 @@ a, span, div, h1, h2, p {
 
     .company {
       height: @headerTotalHeight;
-      @media (max-width: @friseMaxWidthOnTwoLines) {
-        height: @headerTotalHeight + @friseHeight; //la taille de la frise va doubler
-      }
-      @media (max-width: @friseMaxWidthOnFourLines) {
-        height: @headerTotalHeight + 3*@friseHeight; //la taille de la frise va doubler
-      }
+
       overflow: hidden;
 
       .headers {
@@ -206,12 +201,7 @@ a, span, div, h1, h2, p {
 
         @knowingMorePositon: 115px;
         bottom: @knowingMorePositon;
-        @media (max-width: @friseMaxWidthOnTwoLines) {
-          bottom: @knowingMorePositon + @friseHeight;
-        }
-        @media (max-width: @friseMaxWidthOnFourLines) {
-          bottom: @knowingMorePositon + 3*@friseHeight;
-        }
+
         text-align: center;
 
         a > span {
@@ -241,12 +231,7 @@ a, span, div, h1, h2, p {
         position: absolute;
         @pageIndicatorsPosition: 80px;
         bottom: @pageIndicatorsPosition;
-        @media (max-width: @friseMaxWidthOnTwoLines) {
-          bottom: @pageIndicatorsPosition + @friseHeight;
-        }
-        @media (max-width: @friseMaxWidthOnFourLines) {
-          bottom: @pageIndicatorsPosition + 3*@friseHeight;
-        }
+
 
         left: 0;
         right: 0;

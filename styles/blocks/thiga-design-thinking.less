@@ -1,11 +1,11 @@
 @import '../mixins.less';
 @import '../vars.less';
 
-
 .thiga-design-thinking-block {
   width: 482px;
 
-  @media (max-width: 482px) {
+  @widthWithoutImage : 482px;
+  @media (max-width: @widthWithoutImage ) {
     width: auto;
   }
 
@@ -15,7 +15,7 @@
       height: auto;
     }
     background: url("../images/blocks/img_thiga.jpg") no-repeat bottom right;
-    @media (max-width: 482px) {
+    @media (max-width: @widthWithoutImage ) {
       background: white;
     }
 
