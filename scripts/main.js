@@ -76,7 +76,6 @@
         });
     };
 
-
     window.APPLICATION = {
         currentPage: null,
         navigationIntervalIndex: null,
