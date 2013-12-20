@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<title>{{page.title}}</title>
+
+	<meta charset="UTF-8">
+	<meta name="author" content="Xebia IT Architects"/>
+	<meta name="reply-to" content="marketing@xebia.com"/>
+	<meta name="owner" content="Xebia IT Architects"/>
+	<meta name="description" content="L'alliance Xebia est un écosystème de sociétés complémentaires offrant une solution globale et innovante, Xebia, XebiaLabs, UX Republic et Thiga."/>
+	<meta name="keywords" content="Agile, Java, BigData, Cloud, NoSQL, Web, Mobile, DevOps, User Experience, Innovation, Xebia, UX Republic, Thiga, Xebialabs,"/>
+	<meta name="content-language" content="en"/>
+	<meta name="robots" content="follow,index,all"/>
+
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+	<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css"/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href="styles/main.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<!--[if lt IE 9]>
+<div class="browser-warning">
+	ATTENTION&nbsp;! Le site que vous consultez n'est pas conçu pour un navigateur aussi ancien.
+	Pour votre confort et votre sécurité, nous vous invitons à installer la dernière version d'un des navigateurs
+	suivants&nbsp;:
+	<ul>
+		<li><a href="http://www.mozilla.org/fr/firefox/new/" title="Télécharger Firefox">Mozilla Firefox</a></li>
+		<li><a href="http://www.google.fr/intl/fr/chrome/browser/" title="Télécharger Chrome">Google Chrome</a></li>
+		<li><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie"
+			   title="Télécharger Internet Explorer">Microsoft Internet Explorer</a></li>
+	</ul>
+</div>
+
+<![endif]-->
+<div class="wrapper {{page.classBody}}">
+	<header>
+		<div class="general-navigation">
+			<div class="frise">
+				<!-- TODO style/logo Xebia alliance + pourquoi on ne voit pas la frise nom de Zeus oO -->
+				<span><a class="alliance" href="/"><span>Xebia alliance</span></a></span>
+				<span><a class="xebia" href="http://www.xebia.fr"><span>Xebia</span></a></span>
+				<span><a class="ux" href="http://ux-republic.com"><span>UX Republic</span></a></span>
+				<span><a class="labs" href="http://www.xebialabs.com/"><span>Xebia Labs</span></a></span>
+				<span><a class="thiga" href="http://www.thiga.fr/"><span>Thiga</span></a></span>
+			</div>
+		</div>
+	</header>
+	<!-- ---- TODO ---- -->
+	<footer id="footer" class="wrapper">
+		{% include footer.html siteUrl="http://www.alliance.xebia.fr" %}
+	</footer>
+</div>
+
+
+
+<script src="scripts/jquery-2.0.3.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="scripts/eventbrite.jquery.js"></script>
+<script src="scripts/lodash-2.3.0.min.js"></script>
+<script src="scripts/jquery.mixitup.min.js"></script>
+<script src="scripts/main.min.js"></script>
+<script>
+	$(function () {
+		APPLICATION.init('{{page.classBody}}');
+	})
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1657252-14']);
+	_gaq.push(['_trackPageview']);
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
+</html>
