@@ -88,8 +88,8 @@
             this.initMenuMobile();
 
         },
-        initMenuMobile: function() {
-            $('.stripes').click(function() {
+        initMenuMobile: function () {
+            $('.stripes').click(function () {
                 $(this).toggleClass('on');
                 $('.frise').toggleClass('open');
             });
@@ -165,8 +165,12 @@
             $headers.css('left', leftPercentPosition + '%');
             $headers.find('> div').css('display', 'block');
 
-            $('.next-page').click(this.goToNextPage.bind(this));
-            $('.prev-page').click(this.goToPrevPage.bind(this));
+            $('.next-page').click(function () {
+                self.goToNextPage();
+            });
+            $('.prev-page').click(function () {
+                self.goToPrevPage();
+            });
 
             $('.page-indicators > span').click(function () {
                 var nextPageIndex = $('.page-indicators > span').index(this);
