@@ -1,5 +1,29 @@
 (function () {
 
+    //Ci dessous, le lodash du pauvre, les API sont compatibles, mais ca servait à rien de télécharger
+    // tout lodash pour 2 fonctions
+    var _ = {
+        findIndex: function (coll, fn) {
+            for (var index in coll) {
+                if (fn(coll[index])) {
+                    return index << 0;
+                }
+            }
+
+            return -1;
+        },
+        find: function (coll, fn) {
+            for (var index in coll) {
+                var element = coll[index];
+                if (fn(element)) {
+                    return element;
+                }
+            }
+
+            return null;
+        }
+    };
+
     var PAGES = [
         {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr'},
         {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com'},
@@ -20,7 +44,6 @@
 
         return '' + year + '-' + month + '-' + day;
     };
-
 
     var MONTH_SHORT = {
         '1': 'Jan',
@@ -59,8 +82,6 @@
 
 
     var updateEventbriteBlock = function (entity, date, title, img, altImg) {
-
-
         var $eventBriteBlock = $('<section class="block standard-block eventbrite-block"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>');
         $eventBriteBlock.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
         $eventBriteBlock.find('h1').html(title);
