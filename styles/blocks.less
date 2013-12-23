@@ -81,6 +81,13 @@
 
   }
 
+  p {
+    margin-top:5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+  }
+
   .illustration {
     display: block;
     margin: 0 auto;
@@ -91,7 +98,6 @@
     }
   }
 }
-
 
 .djerba-block {
   h1 {
@@ -112,15 +118,19 @@
   }
 }
 
+.blog-block {
+  max-width: 480px;
+}
+
 .ux-block {
-  width:482px;
+  width: 482px;
   background: url('../images/blocks/img_ux-republic.jpg') bottom;
   .content-block {
     display: none;
   }
   @media (max-width: @mobileModeMaxWidth) {
-    background:white;
-    width:auto;
+    background: white;
+    width: auto;
     .content-block {
       display: block;
     }
