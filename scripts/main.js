@@ -68,7 +68,7 @@
         return '' + day + ' ' + month + ' ' + year;
     };
 
-    var parseEventBriteDate = function (eventBriteDate) {
+    var parseExternalDate = function (eventBriteDate) {
         var year = parseInt(eventBriteDate.substr(0, 4), 10);
         var month = parseInt(eventBriteDate.substr(5, 2), 10) - 1;
         var day = parseInt(eventBriteDate.substr(8, 2), 10);
@@ -83,21 +83,31 @@
 
     var templaceBlock = '<section class="block standard-block "><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
 
+    var initTemplateBlock = function (blockClass, date, title, url) {
+        var $block = $(templaceBlock);
+        $block.addClass(blockClass);
+        $block.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
+        $block.find('h1').html('<a href="' + url + '">' + title + '</a>');
+
+        return $block;
+    };
+
+    var addAndDisplayBlock = function ($block) {
+        $('#blockContent').append($block);
+        $block.css('display', 'inline-block');
+        $block.animate({
+            opacity: 1
+        });
+    };
+
     var updateEventbriteBlock = function (entity, date, title, url, img, altImg) {
-        var $eventBriteBlock = $(templaceBlock);
-        $eventBriteBlock.addClass('eventbrite-block');
-        $eventBriteBlock.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
-        $eventBriteBlock.find('h1').html('<a href="' + url + '">' + title + '</a>');
+        var $eventBriteBlock = initTemplateBlock('eventbrite-block', date, title, url);
 
         var $contentBlock = $eventBriteBlock.find('.content-block');
         $contentBlock.append('<div class="bottom-arrow"></div>');
         $contentBlock.append('<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>');
 
-        $('#blockContent').append($eventBriteBlock);
-        $eventBriteBlock.css('display', 'inline-block');
-        $eventBriteBlock.animate({
-            opacity: 1
-        });
+        addAndDisplayBlock($eventBriteBlock);
     };
 
     window.APPLICATION = {
@@ -167,24 +177,17 @@
                     return;
                 }
                 var post = posts[0];
-                var date = parseEventBriteDate(post.date);
+                var date = parseExternalDate(post.date);
                 var title = post.title;
                 var excerpt = post.excerpt;
                 var url = post.url;
 
-                var $blogBlock = $(templaceBlock);
-                $blogBlock.addClass('blog-block');
-                $blogBlock.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
-                $blogBlock.find('h1').html('<a href="'+url+'">' + title + '</a>');
+                var $blogBlock = initTemplateBlock('blog-block', date, title, url);
 
                 var $contentBlock = $blogBlock.find('.content-block');
                 $contentBlock.append('<p>' + excerpt + '</p>');
 
-                $('#blockContent').append($blogBlock);
-                $blogBlock.css('display', 'inline-block');
-                $blogBlock.animate({
-                    opacity: 1
-                });
+                addAndDisplayBlock($blogBlock);
             });
         },
         initEventbriteBlock: function () {
@@ -196,14 +199,14 @@
                         var now = new Date().getTime();
                         var nextEvent = _.find(response.events, function (eventWrapper) {
                             var event = eventWrapper.event;
-                            var startDate = parseEventBriteDate(event.start_date);
+                            var startDate = parseExternalDate(event.start_date);
                             return startDate.getTime() > now && event.status == 'Live';
                         });
 
                         if (nextEvent) {
                             var event = nextEvent.event;
                             if (event.title) {
-                                updateEventbriteBlock('Xebia', parseEventBriteDate(event.start_date), event.title, event.url, event.logo, 'logo ' + event.title);
+                                updateEventbriteBlock('Xebia', parseExternalDate(event.start_date), event.title, event.url, event.logo, 'logo ' + event.title);
                             }
                         }
                     }
