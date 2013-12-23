@@ -7,8 +7,10 @@
     <meta name="author" content="Xebia IT Architects"/>
     <meta name="reply-to" content="marketing@xebia.com"/>
     <meta name="owner" content="Xebia IT Architects"/>
-	<meta name="description" content="L'alliance Xebia est un écosystème de sociétés complémentaires offrant une solution globale et innovante, Xebia, XebiaLabs, UX Republic et Thiga."/>
-	<meta name="keywords" content="Agile, Java, BigData, Cloud, NoSQL, Web, Mobile, DevOps, User Experience, Innovation, Xebia, UX Republic, Thiga, Xebialabs,"/>
+    <meta name="description"
+          content="L'alliance Xebia est un écosystème de sociétés complémentaires offrant une solution globale et innovante, Xebia, XebiaLabs, UX Republic et Thiga."/>
+    <meta name="keywords"
+          content="Agile, Java, BigData, Cloud, NoSQL, Web, Mobile, DevOps, User Experience, Innovation, Xebia, UX Republic, Thiga, Xebialabs,"/>
     <meta name="content-language" content="en"/>
     <meta name="robots" content="follow,index,all"/>
 
@@ -90,17 +92,35 @@
     </header>
 
     <section class="content" id="blockContent">
+        <section class="detail-wrapper">
+            <section class="who-are-we">
+                <div class="white-line"></div>
+                <div class="white-line-label">Qui sommes nous&nbsp;?</div>
+            </section>
+            {% include detail/xebia.html %}
+            {% include detail/ux.html %}
+            {% include detail/labs.html %}
+            {% include detail/thiga.html %}
+
+            <div class="linked-article">
+                <div class="white-line"></div>
+                <div class="white-line-label">Articles liés</div>
+            </div>
+        </section>
+
+
         {% include blocks.html %}
     </section>
 
     <section class="logo-footer">
         <img src="images/logo-alliance-color.png" alt="logo Alliance Xebia">
+
         <div class="alliance">
             XEBIA + XEBIA LABS + THIGA + UX-REPUBLIC
         </div>
     </section>
-	<!-- TODO  lien vers les mentions légales style à faire-->
-	<!-- <a href="/legal.html" title="mentions légales">Mentions légales</a> -->
+    <!-- TODO  lien vers les mentions légales style à faire-->
+    <!-- <a href="/legal.html" title="mentions légales">Mentions légales</a> -->
 </div>
 
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>

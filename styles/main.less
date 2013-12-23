@@ -122,7 +122,7 @@ a, span, div, h1, h2, p {
 
       @allianceLogoHeight: 111px;
       .alliance-logo {
-        cursor:pointer;
+        cursor: pointer;
         background: url("../images/img_header_logo_alliance.png");
         width: 140px;
         height: @allianceLogoHeight;
@@ -364,6 +364,10 @@ a, span, div, h1, h2, p {
     }
   }
 
+  .detail-wrapper {
+    display: none;
+  }
+
   .logo-footer {
     display: none;
     text-align: center;
@@ -388,5 +392,87 @@ a, span, div, h1, h2, p {
     .transition(background-color 0.5s);
     //z-index:-1;
   }
+
+  &.detail {
+
+    .next-page-wrapper, .prev-page-wrapper, .page-indicators {
+      display: none;
+    }
+
+    .detail-wrapper {
+      display: block;
+      .we-are {
+        display: none;
+      }
+    }
+
+    .frise a {
+      opacity: 0.5;
+    }
+
+    &.xebia {
+      .frise a.xebia {
+        opacity: 1;
+      }
+
+      .we-are-xebia {
+        display: block;
+      }
+    }
+
+    &.ux {
+      .frise a.ux {
+        opacity: 1;
+      }
+
+      .we-are-ux {
+        display: block;
+      }
+    }
+
+    &.thiga {
+      .frise a.thiga {
+        opacity: 1;
+      }
+
+      .we-are-thiga {
+        display: block;
+      }
+    }
+
+    &.labs {
+      .frise a.labs {
+        opacity: 1;
+      }
+
+      .we-are-labs {
+        display: block;
+      }
+    }
+  }
+}
+
+.white-line {
+  border-bottom: 1px solid white;
+}
+
+.white-line-label {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: -10px;
+  margin-left: 37%;
+  margin-right: 37%;
+  .transition(background-color 0.5s);
+
+  @media (max-width: @mobileModeMaxWidth) {
+    margin-left: 24%;
+    margin-right: 24%;
+  }
+
+}
+
+.who-are-we {
+  padding-top: 20px;
+  padding-bottom: 20px;
 
 }

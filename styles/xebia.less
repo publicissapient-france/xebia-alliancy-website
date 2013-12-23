@@ -1,7 +1,6 @@
 @import 'mixins.less';
 @import 'vars.less';
 
-
 @xebiaBackColor: #b39ab8;
 
 .wrapper.xebia {
@@ -21,7 +20,7 @@
     color: @xebiaEmphasizedFontColor
   }
 
-  .content {
+  .content, .white-line-label {
     background-color: @xebiaBackColor;
   }
 }
@@ -46,7 +45,7 @@
   .hello-laptop {
     width: @xebiaLogoLaptopWidth;
     float: left;
-    
+
     @media (max-width: 900px) {
       display: none;
     }
