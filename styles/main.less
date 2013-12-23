@@ -122,6 +122,7 @@ a, span, div, h1, h2, p {
 
       @allianceLogoHeight: 111px;
       .alliance-logo {
+        cursor:pointer;
         background: url("../images/img_header_logo_alliance.png");
         width: 140px;
         height: @allianceLogoHeight;
@@ -232,7 +233,6 @@ a, span, div, h1, h2, p {
         @pageIndicatorsPosition: 80px;
         bottom: @pageIndicatorsPosition;
 
-
         left: 0;
         right: 0;
         text-align: center;
@@ -284,6 +284,7 @@ a, span, div, h1, h2, p {
           > a {
 
             display: inline-block;
+            cursor: pointer;
 
             &.xebia {
               background: url('../images/xebia/img_nav_logo_Xebia.png');
@@ -366,15 +367,15 @@ a, span, div, h1, h2, p {
   .logo-footer {
     display: none;
     text-align: center;
-    margin-top:50px;
+    margin-top: 50px;
 
     .alliance {
-      @colorAlliance:#8E8E8E;
-      color:@colorAlliance;
-      border-top:1px solid @colorAlliance;
-      margin-top:40px;
-      padding-top:30px;
-      padding-bottom:40px;
+      @colorAlliance: #8E8E8E;
+      color: @colorAlliance;
+      border-top: 1px solid @colorAlliance;
+      margin-top: 40px;
+      padding-top: 30px;
+      padding-bottom: 40px;
     }
 
     @media (max-width: @mobileModeMaxWidth) {

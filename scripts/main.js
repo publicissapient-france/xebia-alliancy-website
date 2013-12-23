@@ -31,6 +31,13 @@
         {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr'}
     ];
 
+    var SUBPAGES = [
+        {page: 'xebia', title: "Xebia", url: 'xebia-detail.html'},
+        {page: 'ux', title: "UX Republic", url: 'ux-detail.html'},
+        {page: 'labs', title: "Xebia Labs", url: 'labs-detail.html'},
+        {page: 'thiga', title: "THIGA", url: 'thiga-detail.html'}
+    ];
+
     var findPageIndex = function (currentPage) {
         return _.findIndex(PAGES, function (page) {
             return page.page == currentPage;
@@ -80,8 +87,7 @@
         return new Date(year, month, day, hour, minute, second);
     };
 
-
-    var templaceBlock = '<section class="block standard-block "><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
+    var templaceBlock = '<section class="block standard-block xebia"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
 
     var initTemplateBlock = function (blockClass, date, title, url) {
         var $block = $(templaceBlock);
@@ -120,12 +126,24 @@
             this.initBlocks();
             this.initStickyHeader();
             this.initMenuMobile();
-
+            this.initSubLevel();
         },
         initMenuMobile: function () {
             $('.stripes').click(function () {
                 $(this).toggleClass('on');
                 $('.frise').toggleClass('open');
+            });
+        },
+        initSubLevel: function () {
+            var self = this;
+
+            $('.frise a').removeAttr('href').click(function () {
+                var classToSearch = $(this).attr('class');
+                var subpage = _.find(SUBPAGES, function (page) {
+                    return page.page == classToSearch;
+                });
+
+                self.subNavigate(subpage)
             });
         },
         initStickyHeader: function () {
@@ -277,9 +295,35 @@
             });
             this.initNavigationInterval();
         },
+        goToSubPage: function (subPageToGo) {
+
+            //Fixing du header
+            var pageToGo = _.find(PAGES, function (page) {
+                return page.page == subPageToGo.page;
+            });
+
+            this.goToPage(pageToGo);
+            clearInterval(this.navigationIntervalIndex);
+
+            var self = this;
+            $('.alliance-logo').off('click').click(function () {
+                self.navigate(pageToGo);
+                //Reset filter
+                $('#blockContent').mixitup('filter','block')
+            });
+
+
+            $('#blockContent').mixitup('filter', subPageToGo.page);
+        },
         navigate: function (page) {
             this.goToPage(page);
             history.pushState(page, page.title, page.url)
+        },
+        subNavigate: function (subpage) {
+
+
+            this.goToSubPage(subpage);
+            history.pushState(subpage, subpage.title, subpage.url)
         }
     };
 })();
