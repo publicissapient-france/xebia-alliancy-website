@@ -1,17 +1,8 @@
 (function () {
 
     //Ci dessous, le lodash du pauvre, les API sont compatibles, mais ca servait à rien de télécharger
-    // tout lodash pour 2 fonctions
+    // tout lodash pour 1 fonction
     var _ = {
-        findIndex: function (coll, fn) {
-            for (var index in coll) {
-                if (fn(coll[index])) {
-                    return index << 0;
-                }
-            }
-
-            return -1;
-        },
         find: function (coll, fn) {
             for (var index in coll) {
                 var element = coll[index];
@@ -24,22 +15,42 @@
         }
     };
 
-    var PAGES = [
-        {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr', urlDetail: 'xebia-detail.html'},
-        {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com', urlDetail: 'ux-detail.html'},
-        {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com', urlDetail: 'labs-detail.html'},
-        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr', urlDetail: 'thiga-detail.html'}
-    ];
+    var PAGE = {
+        PAGES: [
+            {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr', urlDetail: 'xebia-detail.html'},
+            {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com', urlDetail: 'ux-detail.html'},
+            {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com', urlDetail: 'labs-detail.html'},
+            {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr', urlDetail: 'thiga-detail.html'}
+        ],
+        currentPage: null,
+        findIndex: function (searchedPage) {
+            return this.PAGES.indexOf(searchedPage);
+        },
+        findByName: function (pageName) {
+            return  _.find(this.PAGES, function (page) {
+                return page.page == pageName
+            });
+        },
+        findNext: function () {
+            var currentIndex = this.findIndex(this.currentPage);
 
-    var findPageIndex = function (searchedPage) {
-        return PAGES.indexOf(searchedPage);
+            var nextPageIndex = (currentIndex >= this.totalPages() - 1) ? 0 : currentIndex + 1;
+            return this.findByIndex(nextPageIndex);
+        },
+        findPrev: function () {
+            var currentIndex = this.findIndex(this.currentPage);
+
+            var prevPageIndex = (currentIndex < 1) ? this.totalPages() - 1 : currentIndex - 1;
+            return this.findByIndex(prevPageIndex);
+        },
+        findByIndex: function (idx) {
+            return this.PAGES[idx];
+        },
+        totalPages: function () {
+            return this.PAGES.length - 1;
+        }
     };
 
-    var findPageByName = function (pageName) {
-        return  _.find(PAGES, function (page) {
-            return page.page == pageName
-        });
-    };
 
     var formatDateIso = function (date) {
         var year = date.getFullYear();
@@ -96,12 +107,12 @@
     };
 
     window.APPLICATION = {
-        currentPage: null,
+
         navigationIntervalIndex: null,
         currentFilter: 'block',
         init: function (currentWrapperClass) {
             var currentPageName = currentWrapperClass.replace(' detail', '');
-            this.currentPage = findPageByName(currentPageName);
+            PAGE.currentPage = PAGE.findByName(currentPageName);
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
@@ -115,7 +126,7 @@
             var $wrapper = $('.wrapper');
             if ($wrapper.hasClass('detail')) {
 
-                this.goToSubPage(this.currentPage);
+                this.goToSubPage(PAGE.currentPage);
             }
         },
         initMenuMobile: function () {
@@ -130,7 +141,7 @@
             $('.frise a').removeAttr('href').click(function () {
                 var classToSearch = $(this).attr('class');
 
-                var subpage = findPageByName(classToSearch);
+                var subpage = PAGE.findByName(classToSearch);
 
                 self.subNavigate(subpage)
             });
@@ -184,7 +195,7 @@
                 var $wrapper = $('.wrapper');
                 if ($wrapper.hasClass('detail')) {
 
-                    self.navigate(self.currentPage);
+                    self.navigate(PAGE.currentPage);
                     //Reset filter
                     self.filterBlock('block');
                 } else {
@@ -259,27 +270,21 @@
             });
 
             $('.page-indicators > span').click(function () {
-                var nextPageIndex = $('.page-indicators > span').index(this);
-                var nextPage = PAGES[nextPageIndex];
+                var pageIndexToGo = $('.page-indicators > span').index(this);
+                var pageToGo = PAGE.findByIndex(pageIndexToGo);
 
-                self.navigate(nextPage);
+                self.navigate(pageToGo);
             });
 
             this.initNavigationInterval();
         },
         goToNextPage: function () {
-            var currentIndex = findPageIndex(this.currentPage);
-
-            var nextPageIndex = (currentIndex >= PAGES.length - 1) ? 0 : currentIndex + 1;
-            var nextPage = PAGES[nextPageIndex];
+            var nextPage = PAGE.findNext();
 
             this.navigate(nextPage);
         },
         goToPrevPage: function () {
-            var currentIndex = findPageIndex(this.currentPage);
-
-            var prevPageIndex = (currentIndex < 1) ? PAGES.length - 1 : currentIndex - 1;
-            var prevPage = PAGES[prevPageIndex];
+            var prevPage = PAGE.findPrev();
 
             this.navigate(prevPage);
         },
@@ -292,7 +297,7 @@
         },
         goToPage: function (pageToGo) {
             var self = this;
-            var indexOfPage = findPageIndex(pageToGo);
+            var indexOfPage = PAGE.findIndex(pageToGo);
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
@@ -300,7 +305,7 @@
             $('.headers').animate({
                 left: (-indexOfPage * 100) + '%'
             }, 500, function () {
-                self.currentPage = pageToGo;
+                PAGE.currentPage = pageToGo;
             });
 
             this.initNavigationInterval();
