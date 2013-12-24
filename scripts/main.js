@@ -32,6 +32,7 @@
             {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr', urlDetail: 'thiga-detail.html'}
         ],
         currentPage: null,
+        isCurrentDetail: null,
         findIndex: function (searchedPage) {
             return _.findIndex(this.PAGES, function (page) {
                 return searchedPage.page == page.page
@@ -124,6 +125,7 @@
         init: function (currentWrapperClass) {
             var currentPageName = currentWrapperClass.replace(' detail', '');
             PAGE.currentPage = PAGE.findByName(currentPageName);
+            PAGE.isCurrentDetail = (currentWrapperClass.indexOf('detail') >= 0)
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
@@ -134,9 +136,7 @@
             this.initClickAllianceLogo();
         },
         loadSubpage: function () {
-            var $wrapper = $('.wrapper');
-            if ($wrapper.hasClass('detail')) {
-
+            if (PAGE.isCurrentDetail) {
                 this.goToSubPage(PAGE.currentPage);
             }
         },
@@ -209,10 +209,7 @@
         initClickAllianceLogo: function () {
             var self = this;
             $('.alliance-logo').click(function () {
-
-                var $wrapper = $('.wrapper');
-                if ($wrapper.hasClass('detail')) {
-
+                if (PAGE.isCurrentDetail) {
                     self.navigate(PAGE.currentPage);
                     //Reset filter
                     self.filterBlock('block');
@@ -318,6 +315,8 @@
             var indexOfPage = PAGE.findIndex(pageToGo);
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
+            PAGE.isCurrentDetail = false;
+            
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
 
             $('.headers').animate({
@@ -335,6 +334,7 @@
             clearInterval(this.navigationIntervalIndex);
 
             $('.wrapper').attr('class', 'wrapper ' + subPageToGo.page + ' detail');
+            PAGE.isCurrentDetail = true;
             this.filterBlock(subPageToGo.page);
         },
         sortBlock: function (sort) {
