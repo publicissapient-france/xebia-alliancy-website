@@ -365,7 +365,15 @@ a, span, div, h1, h2, p {
   }
 
   .detail-wrapper {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    .transition(max-height 0.5s);
+
+    .we-are {
+      .transition(max-height 0.1s ease-out 0.5s);
+      max-height: 0;
+      overflow: hidden;
+    }
   }
 
   .logo-footer {
@@ -400,9 +408,9 @@ a, span, div, h1, h2, p {
     }
 
     .detail-wrapper {
-      display: block;
+      max-height: 900px;
       .we-are {
-        display: none;
+        .transition(none);
       }
     }
 
@@ -416,7 +424,7 @@ a, span, div, h1, h2, p {
       }
 
       .we-are-xebia {
-        display: block;
+        max-height: 900px;
       }
     }
 
@@ -426,7 +434,7 @@ a, span, div, h1, h2, p {
       }
 
       .we-are-ux {
-        display: block;
+        max-height: 900px;
       }
     }
 
@@ -436,7 +444,7 @@ a, span, div, h1, h2, p {
       }
 
       .we-are-thiga {
-        display: block;
+        max-height: 900px;
       }
     }
 
@@ -446,7 +454,7 @@ a, span, div, h1, h2, p {
       }
 
       .we-are-labs {
-        display: block;
+        max-height: 900px;
       }
     }
   }
