@@ -25,17 +25,10 @@
     };
 
     var PAGES = [
-        {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr'},
-        {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com'},
-        {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com'},
-        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr'}
-    ];
-
-    var SUBPAGES = [
-        {page: 'xebia', title: "Xebia", url: 'xebia-detail.html'},
-        {page: 'ux', title: "UX Republic", url: 'ux-detail.html'},
-        {page: 'labs', title: "Xebia Labs", url: 'labs-detail.html'},
-        {page: 'thiga', title: "THIGA", url: 'thiga-detail.html'}
+        {page: 'xebia', title: "Xebia", url: 'index.html', mainUrl: 'http://www.xebia.fr', urlDetail: 'xebia-detail.html'},
+        {page: 'ux', title: "UX Republic", url: 'ux.html', mainUrl: 'http://ux-republic.com', urlDetail: 'ux-detail.html'},
+        {page: 'labs', title: "Xebia Labs", url: 'labs.html', mainUrl: 'http://www.xebialabs.com', urlDetail: 'labs-detail.html'},
+        {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr', urlDetail: 'thiga-detail.html'}
     ];
 
     var findPageIndex = function (currentPage) {
@@ -111,12 +104,13 @@
             this.initMenuMobile();
             this.initSubLevel();
             this.loadSubpage();
+            this.initClickAllianceLogo();
         },
         loadSubpage: function () {
             var $wrapper = $('.wrapper');
             if ($wrapper.hasClass('detail')) {
 
-                var subpage = _.find(SUBPAGES, function (page) {
+                var subpage = _.find(PAGES, function (page) {
                     return $wrapper.hasClass(page.page);
                 });
 
@@ -134,7 +128,7 @@
 
             $('.frise a').removeAttr('href').click(function () {
                 var classToSearch = $(this).attr('class');
-                var subpage = _.find(SUBPAGES, function (page) {
+                var subpage = _.find(PAGES, function (page) {
                     return page.page == classToSearch;
                 });
 
@@ -182,6 +176,25 @@
                 showOnLoad: 'none'
             });
             $blockContent.sortable();
+        },
+        initClickAllianceLogo: function () {
+            var self = this;
+            $('.alliance-logo').click(function () {
+
+                var $wrapper = $('.wrapper');
+                if ($wrapper.hasClass('detail')) {
+
+                    var pageToGo = _.find(PAGES, function (page) {
+                        return $wrapper.hasClass(page.page);
+                    });
+
+                    self.navigate(pageToGo);
+                    //Reset filter
+                    self.filterBlock('block');
+                } else {
+                    self.sortBlock('random');
+                }
+            });
         },
         initBlogBlock: function () {
             var self = this;
@@ -293,26 +306,20 @@
             }, 500, function () {
                 self.currentPage = pageToGo.page;
             });
+
             this.initNavigationInterval();
         },
         goToSubPage: function (subPageToGo) {
 
             //Fixing du header
-            var pageToGo = _.find(PAGES, function (page) {
-                return page.page == subPageToGo.page;
-            });
-
-            this.goToPage(pageToGo);
+            this.goToPage(subPageToGo);
             clearInterval(this.navigationIntervalIndex);
 
-            var self = this;
-            $('.alliance-logo').off('click').click(function () {
-                self.navigate(pageToGo);
-                //Reset filter
-                self.filterBlock('block');
-            });
-            $('.wrapper').attr('class', 'wrapper ' + pageToGo.page + ' detail');
+            $('.wrapper').attr('class', 'wrapper ' + subPageToGo.page + ' detail');
             this.filterBlock(subPageToGo.page);
+        },
+        sortBlock: function (sort) {
+            $('#blockContent').mixitup('sort', sort);
         },
         filterBlock: function (filter) {
             this.currentFilter = filter;
@@ -324,7 +331,7 @@
         },
         subNavigate: function (subpage) {
             this.goToSubPage(subpage);
-            history.pushState(subpage, subpage.title, subpage.url)
+            history.pushState(subpage, subpage.title, subpage.urlDetail)
         },
 
         addAndDisplayXebiaBlock: function ($block) {
