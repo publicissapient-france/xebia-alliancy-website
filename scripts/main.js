@@ -63,7 +63,6 @@
         }
     };
 
-
     var formatDateIso = function (date) {
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
@@ -86,6 +85,7 @@
         '11': 'Nov',
         '12': 'Dec'
     };
+    
     var formatDateTitle = function (date) {
         var year = date.getFullYear();
         var monthNum = date.getMonth() + 1;
@@ -125,7 +125,8 @@
         init: function (currentWrapperClass) {
             var currentPageName = currentWrapperClass.replace(' detail', '');
             PAGE.currentPage = PAGE.findByName(currentPageName);
-            PAGE.isCurrentDetail = (currentWrapperClass.indexOf('detail') >= 0)
+            PAGE.isCurrentDetail = (currentWrapperClass.indexOf('detail') >= 0);
+
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
@@ -206,18 +207,6 @@
             });
             $blockContent.sortable();
         },
-        initClickAllianceLogo: function () {
-            var self = this;
-            $('.alliance-logo').click(function () {
-                if (PAGE.isCurrentDetail) {
-                    self.navigate(PAGE.currentPage);
-                    //Reset filter
-                    self.filterBlock('block');
-                } else {
-                    self.sortBlock('random');
-                }
-            });
-        },
         initBlogBlock: function () {
             var self = this;
             var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=1';
@@ -265,7 +254,18 @@
                     }
                 });
             });
-
+        },
+        initClickAllianceLogo: function () {
+            var self = this;
+            $('.alliance-logo').click(function () {
+                if (PAGE.isCurrentDetail) {
+                    self.navigate(PAGE.currentPage);
+                    //Reset filter
+                    self.filterBlock('block');
+                } else {
+                    self.sortBlock('random');
+                }
+            });
         },
         initNavigation: function () {
             var self = this;
@@ -316,7 +316,7 @@
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
             PAGE.isCurrentDetail = false;
-            
+
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
 
             $('.headers').animate({
@@ -335,6 +335,7 @@
 
             $('.wrapper').attr('class', 'wrapper ' + subPageToGo.page + ' detail');
             PAGE.isCurrentDetail = true;
+
             this.filterBlock(subPageToGo.page);
         },
         sortBlock: function (sort) {
@@ -352,7 +353,6 @@
             this.goToSubPage(subpage);
             history.pushState({page: subpage, mode: 'detail'}, subpage.title, subpage.urlDetail)
         },
-
         addAndDisplayXebiaBlock: function ($block) {
             var $blockContent = $('#blockContent');
             $blockContent.append($block);
