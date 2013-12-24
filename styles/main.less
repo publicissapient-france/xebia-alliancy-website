@@ -232,7 +232,6 @@ a, span, div, h1, h2, p {
         @pageIndicatorsPosition: 80px;
         bottom: @pageIndicatorsPosition;
 
-
         left: 0;
         right: 0;
         text-align: center;
@@ -366,15 +365,24 @@ a, span, div, h1, h2, p {
   .logo-footer {
     display: none;
     text-align: center;
-    margin-top:50px;
+    margin-top: 50px;
 
     .alliance {
-      @colorAlliance:#8E8E8E;
-      color:@colorAlliance;
-      border-top:1px solid @colorAlliance;
-      margin-top:40px;
-      padding-top:30px;
-      padding-bottom:40px;
+      @colorAlliance: #8E8E8E;
+      color: @colorAlliance;
+      border-top: 1px solid @colorAlliance;
+      margin-top: 40px;
+      padding-top: 30px;
+      padding-bottom: 40px;
+      a {
+        text-decoration: none;
+        color:@colorAlliance;
+
+        &:hover {
+          color:darken(@colorAlliance, 20%);
+          text-decoration: underline;
+        }
+      }
     }
 
     @media (max-width: @mobileModeMaxWidth) {
