@@ -1,8 +1,17 @@
 (function () {
 
     //Ci dessous, le lodash du pauvre, les API sont compatibles, mais ca servait à rien de télécharger
-    // tout lodash pour 1 fonction
+    // tout lodash pour 2 fonctions
     var _ = {
+        findIndex: function (coll, fn) {
+            for (var index in coll) {
+                if (fn(coll[index])) {
+                    return index << 0;
+                }
+            }
+
+            return null;
+        },
         find: function (coll, fn) {
             for (var index in coll) {
                 var element = coll[index];
@@ -24,7 +33,9 @@
         ],
         currentPage: null,
         findIndex: function (searchedPage) {
-            return this.PAGES.indexOf(searchedPage);
+            return _.findIndex(this.PAGES, function (page) {
+                return searchedPage.page == page.page
+            });
         },
         findByName: function (pageName) {
             return  _.find(this.PAGES, function (page) {
@@ -47,7 +58,7 @@
             return this.PAGES[idx];
         },
         totalPages: function () {
-            return this.PAGES.length - 1;
+            return this.PAGES.length;
         }
     };
 
@@ -167,9 +178,16 @@
         initRouting: function () {
             var self = this;
             window.onpopstate = function (event) {
-                var page = event.state;
-                if (page) {
-                    self.goToPage(page);
+                var state = event.state;
+
+                if (state) {
+                    var page = state.page;
+
+                    if (state.mode == 'detail') {
+                        self.goToSubPage(page)
+                    } else {
+                        self.goToPage(page);
+                    }
                 }
             }
         },
@@ -296,7 +314,7 @@
             }, 10000);
         },
         goToPage: function (pageToGo) {
-            var self = this;
+
             var indexOfPage = PAGE.findIndex(pageToGo);
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
@@ -328,11 +346,11 @@
         },
         navigate: function (page) {
             this.goToPage(page);
-            history.pushState(page, page.title, page.url)
+            history.pushState({page: page, mode: 'normal'}, page.title, page.url)
         },
         subNavigate: function (subpage) {
             this.goToSubPage(subpage);
-            history.pushState(subpage, subpage.title, subpage.urlDetail)
+            history.pushState({page: subpage, mode: 'detail'}, subpage.title, subpage.urlDetail)
         },
 
         addAndDisplayXebiaBlock: function ($block) {
