@@ -85,7 +85,7 @@
         '11': 'Nov',
         '12': 'Dec'
     };
-    
+
     var formatDateTitle = function (date) {
         var year = date.getFullYear();
         var monthNum = date.getMonth() + 1;
@@ -107,10 +107,10 @@
         return new Date(year, month, day, hour, minute, second);
     };
 
-    var templaceBlock = '<section class="block standard-block xebia"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
+    var xebiaTemplateBlock = '<section class="block standard-block xebia"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
 
-    var initTemplateBlock = function (blockClass, date, title, url) {
-        var $block = $(templaceBlock);
+    var initXebiaTemplateBlock = function (blockClass, date, title, url) {
+        var $block = $(xebiaTemplateBlock);
         $block.addClass(blockClass);
         $block.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
         $block.find('h1').html('<a href="' + url + '">' + title + '</a>');
@@ -224,7 +224,7 @@
                 var excerpt = post.excerpt;
                 var url = post.url;
 
-                var $blogBlock = initTemplateBlock('blog-block', date, title, url);
+                var $blogBlock = initXebiaTemplateBlock('blog-block', date, title, url);
 
                 var $contentBlock = $blogBlock.find('.content-block');
                 $contentBlock.append('<p>' + excerpt + '</p>');
@@ -365,7 +365,7 @@
             $blockContent.mixitup('remix', this.currentFilter);
         },
         updateEventbriteBlock: function (entity, date, title, url, img, altImg) {
-            var $eventBriteBlock = initTemplateBlock('eventbrite-block', date, title, url);
+            var $eventBriteBlock = initXebiaTemplateBlock('eventbrite-block', date, title, url);
 
             var $contentBlock = $eventBriteBlock.find('.content-block');
             $contentBlock.append('<div class="bottom-arrow"></div>');
