@@ -31,9 +31,13 @@
         {page: 'thiga', title: "THIGA", url: 'thiga.html', mainUrl: 'http://www.thiga.fr', urlDetail: 'thiga-detail.html'}
     ];
 
-    var findPageIndex = function (currentPage) {
-        return _.findIndex(PAGES, function (page) {
-            return page.page == currentPage;
+    var findPageIndex = function (searchedPage) {
+        return PAGES.indexOf(searchedPage);
+    };
+
+    var findPageByName = function (pageName) {
+        return  _.find(PAGES, function (page) {
+            return page.page == pageName
         });
     };
 
@@ -95,8 +99,9 @@
         currentPage: null,
         navigationIntervalIndex: null,
         currentFilter: 'block',
-        init: function (currentPage) {
-            this.currentPage = currentPage;
+        init: function (currentWrapperClass) {
+            var currentPageName = currentWrapperClass.replace(' detail', '');
+            this.currentPage = findPageByName(currentPageName);
             this.initRouting();
             this.initNavigation();
             this.initBlocks();
@@ -110,11 +115,7 @@
             var $wrapper = $('.wrapper');
             if ($wrapper.hasClass('detail')) {
 
-                var subpage = _.find(PAGES, function (page) {
-                    return $wrapper.hasClass(page.page);
-                });
-
-                this.goToSubPage(subpage);
+                this.goToSubPage(this.currentPage);
             }
         },
         initMenuMobile: function () {
@@ -128,9 +129,8 @@
 
             $('.frise a').removeAttr('href').click(function () {
                 var classToSearch = $(this).attr('class');
-                var subpage = _.find(PAGES, function (page) {
-                    return page.page == classToSearch;
-                });
+
+                var subpage = findPageByName(classToSearch);
 
                 self.subNavigate(subpage)
             });
@@ -184,11 +184,7 @@
                 var $wrapper = $('.wrapper');
                 if ($wrapper.hasClass('detail')) {
 
-                    var pageToGo = _.find(PAGES, function (page) {
-                        return $wrapper.hasClass(page.page);
-                    });
-
-                    self.navigate(pageToGo);
+                    self.navigate(self.currentPage);
                     //Reset filter
                     self.filterBlock('block');
                 } else {
@@ -296,7 +292,7 @@
         },
         goToPage: function (pageToGo) {
             var self = this;
-            var indexOfPage = findPageIndex(pageToGo.page);
+            var indexOfPage = findPageIndex(pageToGo);
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
@@ -304,7 +300,7 @@
             $('.headers').animate({
                 left: (-indexOfPage * 100) + '%'
             }, 500, function () {
-                self.currentPage = pageToGo.page;
+                self.currentPage = pageToGo;
             });
 
             this.initNavigationInterval();
