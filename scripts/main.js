@@ -60,6 +60,9 @@
         },
         totalPages: function () {
             return this.PAGES.length;
+        },
+        isCurrentPage: function(page) {
+            return this.currentPage.page == page.page;
         }
     };
 
@@ -107,15 +110,18 @@
         return new Date(year, month, day, hour, minute, second);
     };
 
-    var xebiaTemplateBlock = '<section class="block standard-block xebia"><div class="title-block xebia-title">Xebia<time></time></div><div class="content-block"><h1></h1></div></section>';
+    var BLOCK = {
+        TEMPLATE_BLOCK: '<section class="block standard-block"><div class="title-block"><time></time></div><div class="content-block"><h1></h1></div></section>',
+        initXebiaTemplateBlock: function (blockClass, date, title, url) {
+            var $block = $(this.TEMPLATE_BLOCK);
+            $block.addClass(blockClass).addClass('xebia');
+            var $titleBlock = $block.find('.title-block');
+            $titleBlock.addClass('xebia-title').prepend('Xebia');
+            $titleBlock.find('time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
+            $block.find('h1').html('<a href="' + url + '">' + title + '</a>');
 
-    var initXebiaTemplateBlock = function (blockClass, date, title, url) {
-        var $block = $(xebiaTemplateBlock);
-        $block.addClass(blockClass);
-        $block.find('.title-block time').attr('datetime', formatDateIso(date)).text(formatDateTitle(date));
-        $block.find('h1').html('<a href="' + url + '">' + title + '</a>');
-
-        return $block;
+            return $block;
+        }
     };
 
     window.APPLICATION = {
@@ -154,8 +160,11 @@
                 var classToSearch = $(this).attr('class');
 
                 var subpage = PAGE.findByName(classToSearch);
-
-                self.subNavigate(subpage)
+                if (PAGE.isCurrentPage(subpage) && PAGE.isCurrentDetail) {
+                    self.sortBlock('random');
+                } else {
+                    self.subNavigate(subpage)
+                }
             });
         },
         initStickyHeader: function () {
@@ -224,7 +233,7 @@
                 var excerpt = post.excerpt;
                 var url = post.url;
 
-                var $blogBlock = initXebiaTemplateBlock('blog-block', date, title, url);
+                var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
 
                 var $contentBlock = $blogBlock.find('.content-block');
                 $contentBlock.append('<p>' + excerpt + '</p>');
@@ -365,7 +374,7 @@
             $blockContent.mixitup('remix', this.currentFilter);
         },
         updateEventbriteBlock: function (entity, date, title, url, img, altImg) {
-            var $eventBriteBlock = initXebiaTemplateBlock('eventbrite-block', date, title, url);
+            var $eventBriteBlock = BLOCK.initXebiaTemplateBlock('eventbrite-block', date, title, url);
 
             var $contentBlock = $eventBriteBlock.find('.content-block');
             $contentBlock.append('<div class="bottom-arrow"></div>');
