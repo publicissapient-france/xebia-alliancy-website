@@ -61,7 +61,7 @@
         totalPages: function () {
             return this.PAGES.length;
         },
-        isCurrentPage: function(page) {
+        isCurrentPage: function (page) {
             return this.currentPage.page == page.page;
         }
     };
@@ -124,10 +124,41 @@
         }
     };
 
+    var Mixitup = function () {
+        this.currentFilter = null;
+        this.$blockContent = $('#blockContent');
+        this.$blockContent.mixitup({
+            targetSelector: '.block',
+            showOnLoad: 'none'
+        });
+        this.$blockContent.sortable();
+    };
+
+    Mixitup.prototype.sort = function (sort) {
+        this.$blockContent.mixitup('sort', sort)
+    };
+
+    Mixitup.prototype.filter = function (filter) {
+        if (!filter) {
+            filter = 'block';
+        }
+        this.currentFilter = filter;
+        this.$blockContent.mixitup('filter', filter);
+    };
+
+    Mixitup.prototype.remix = function () {
+        this.$blockContent.mixitup('remix', this.currentFilter);
+    };
+
+    Mixitup.prototype.randomize = function () {
+        this.sort('random');
+    };
+
     window.APPLICATION = {
 
         navigationIntervalIndex: null,
-        currentFilter: 'block',
+
+        mixitup: null,
         init: function (currentWrapperClass) {
             var currentPageName = currentWrapperClass.replace(' detail', '');
             PAGE.currentPage = PAGE.findByName(currentPageName);
@@ -161,7 +192,7 @@
 
                 var subpage = PAGE.findByName(classToSearch);
                 if (PAGE.isCurrentPage(subpage) && PAGE.isCurrentDetail) {
-                    self.sortBlock('random');
+                    self.mixitup.randomize();
                 } else {
                     self.subNavigate(subpage)
                 }
@@ -206,15 +237,7 @@
             this.initEventbriteBlock();
             this.initBlogBlock();
 
-            this.initMixitUp();
-        },
-        initMixitUp: function () {
-            var $blockContent = $('#blockContent');
-            $blockContent.mixitup({
-                targetSelector: '.block',
-                showOnLoad: 'none'
-            });
-            $blockContent.sortable();
+            this.mixitup = new Mixitup();
         },
         initBlogBlock: function () {
             var self = this;
@@ -270,9 +293,9 @@
                 if (PAGE.isCurrentDetail) {
                     self.navigate(PAGE.currentPage);
                     //Reset filter
-                    self.filterBlock('block');
+                    self.mixitup.filter();
                 } else {
-                    self.sortBlock('random');
+                    self.mixitup.randomize();
                 }
             });
         },
@@ -345,14 +368,7 @@
             $('.wrapper').attr('class', 'wrapper ' + subPageToGo.page + ' detail');
             PAGE.isCurrentDetail = true;
 
-            this.filterBlock(subPageToGo.page);
-        },
-        sortBlock: function (sort) {
-            $('#blockContent').mixitup('sort', sort);
-        },
-        filterBlock: function (filter) {
-            this.currentFilter = filter;
-            $('#blockContent').mixitup('filter', filter);
+            this.mixitup.filter(subPageToGo.page);
         },
         navigate: function (page) {
             this.goToPage(page);
@@ -371,7 +387,7 @@
                 opacity: 1
             });
 
-            $blockContent.mixitup('remix', this.currentFilter);
+            this.mixitup.remix();
         },
         updateEventbriteBlock: function (entity, date, title, url, img, altImg) {
             var $eventBriteBlock = BLOCK.initXebiaTemplateBlock('eventbrite-block', date, title, url);
