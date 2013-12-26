@@ -82,7 +82,7 @@
   }
 
   p {
-    margin-top:5px;
+    margin-top: 5px;
     margin-left: 15px;
     margin-right: 15px;
     text-align: justify;
@@ -120,6 +120,31 @@
 
 .blog-block {
   max-width: 480px;
+
+  h1 {
+    color: @xebiaBlockColor;
+    font-size: 13pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .excerpt {
+    height: 200px;
+    line-height: 200px;
+    p {
+      line-height: 1.2;
+
+      font-weight: 100;
+      font-size: 11pt;
+      max-width: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
 
 .ux-block {

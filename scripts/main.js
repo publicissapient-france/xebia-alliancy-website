@@ -260,7 +260,7 @@
                 var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
 
                 var $contentBlock = $blogBlock.find('.content-block');
-                $contentBlock.append('<p>' + excerpt + '</p>');
+                $contentBlock.append('<div class="excerpt"><p>' + excerpt + '</p></div>');
 
                 self.addAndDisplayXebiaBlock($blogBlock);
             });
