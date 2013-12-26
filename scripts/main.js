@@ -125,7 +125,7 @@
     };
 
     var Mixitup = function () {
-        this.currentFilter = null;
+        this.currentFilter = 'block';
         this.$blockContent = $('#blockContent');
         this.$blockContent.mixitup({
             targetSelector: '.block',
@@ -142,6 +142,7 @@
         if (!filter) {
             filter = 'block';
         }
+
         this.currentFilter = filter;
         this.$blockContent.mixitup('filter', filter);
     };
@@ -342,15 +343,19 @@
                 self.goToNextPage();
             }, 10000);
         },
+        instrumentKnowingMore: function(pageToGo) {
+            $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
+        },
         goToPage: function (pageToGo) {
 
             var indexOfPage = PAGE.findIndex(pageToGo);
 
             $('.wrapper').attr('class', 'wrapper ' + pageToGo.page);
             PAGE.isCurrentDetail = false;
+            this.mixitup.filter();
 
-            $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
 
+            this.instrumentKnowingMore(pageToGo);
             $('.headers').animate({
                 left: (-indexOfPage * 100) + '%'
             }, 500, function () {
@@ -362,10 +367,11 @@
         goToSubPage: function (subPageToGo) {
 
             //Fixing du header
-            this.goToPage(subPageToGo);
+            this.instrumentKnowingMore(subPageToGo);
             clearInterval(this.navigationIntervalIndex);
 
             $('.wrapper').attr('class', 'wrapper ' + subPageToGo.page + ' detail');
+            PAGE.currentPage = subPageToGo;
             PAGE.isCurrentDetail = true;
 
             this.mixitup.filter(subPageToGo.page);
