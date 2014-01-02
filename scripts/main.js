@@ -167,7 +167,7 @@
             $blockContent.sortable();
         },
         initBlogBlock: function () {
-            var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=10';
+            var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=1';
             var promiseForBlog = $.ajax(urlApiBlog, {
                 dataType: 'jsonp'
             });
@@ -187,12 +187,12 @@
                     var $contentBlock = $blogBlock.find('.content-block');
                     var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
                     $excerpt.find('.more-link').remove();
-                    
-                    $excerpt.find('img').css('width','inherit').css('height','inherit');
+
+                    $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
                     $contentBlock.append($excerpt);
 
                     addAndDisplayBlock($blogBlock);
-                })
+                });
             });
         },
         initEventbriteBlock: function () {
