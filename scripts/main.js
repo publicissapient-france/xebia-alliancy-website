@@ -187,7 +187,7 @@
                     var $contentBlock = $blogBlock.find('.content-block');
                     var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
                     $excerpt.find('.more-link').remove();
-                    $excerpt.find('.c2w-toc').remove();
+                    
                     $excerpt.find('img').css('width','inherit').css('height','inherit');
                     $contentBlock.append($excerpt);
 
