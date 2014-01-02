@@ -251,18 +251,26 @@
                 if (posts.length < 1) {
                     return;
                 }
-                var post = posts[0];
-                var date = parseExternalDate(post.date);
-                var title = post.title;
-                var excerpt = post.excerpt;
-                var url = post.url;
+                posts.forEach(function (post) {
+                    var date = parseExternalDate(post.date);
+                    var title = post.title;
+                    var excerpt = post.content;
+                    var url = post.url;
 
-                var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
 
-                var $contentBlock = $blogBlock.find('.content-block');
-                $contentBlock.append('<div class="excerpt"><p>' + excerpt + '</p></div>');
+                    var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
 
-                self.addAndDisplayXebiaBlock($blogBlock);
+                    var $contentBlock = $blogBlock.find('.content-block');
+                    var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
+                    $excerpt.find('.more-link').remove();
+
+
+                    $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
+                    $contentBlock.append($excerpt);
+
+                    self.addAndDisplayXebiaBlock($blogBlock);
+                });
+
             });
         },
         initEventbriteBlock: function () {
@@ -343,7 +351,7 @@
                 self.goToNextPage();
             }, 10000);
         },
-        instrumentKnowingMore: function(pageToGo) {
+        instrumentKnowingMore: function (pageToGo) {
             $('.knowing-more a').attr('href', pageToGo.mainUrl).attr('title', pageToGo.title);
         },
         goToPage: function (pageToGo) {
