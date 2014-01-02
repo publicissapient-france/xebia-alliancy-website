@@ -167,7 +167,7 @@
             $blockContent.sortable();
         },
         initBlogBlock: function () {
-            var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=1';
+            var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=10';
             var promiseForBlog = $.ajax(urlApiBlog, {
                 dataType: 'jsonp'
             });
@@ -176,18 +176,22 @@
                 if (posts.length < 1) {
                     return;
                 }
-                var post = posts[0];
-                var date = parseExternalDate(post.date);
-                var title = post.title;
-                var excerpt = post.excerpt;
-                var url = post.url;
+                posts.forEach(function (post) {
+                    var date = parseExternalDate(post.date);
+                    var title = post.title;
+                    var excerpt = post.content;
+                    var url = post.url;
 
-                var $blogBlock = initTemplateBlock('blog-block', date, title, url);
+                    var $blogBlock = initTemplateBlock('blog-block', date, title, url);
 
-                var $contentBlock = $blogBlock.find('.content-block');
-                $contentBlock.append('<div class="excerpt"><p>' + excerpt + '</p></div>');
+                    var $contentBlock = $blogBlock.find('.content-block');
+                    var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
+                    $excerpt.find('.more-link').remove();
+                    $excerpt.find('.c2w-toc').remove();
+                    $contentBlock.append($excerpt);
 
-                addAndDisplayBlock($blogBlock);
+                    addAndDisplayBlock($blogBlock);
+                })
             });
         },
         initEventbriteBlock: function () {
