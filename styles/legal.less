@@ -1,0 +1,75 @@
+@import 'mixins.less';
+@import 'vars.less';
+
+
+.wrapper.legal {
+  header {
+	height: 75px;
+	background-color: @xebiaEmphasizedFontColor;
+	.general-navigation {
+	  .frise {
+		min-height: @friseHeight - 2px;
+		max-height: @friseHeight - 2px;
+		&>span {
+		  width:19.5%;
+		}
+	  }
+	}
+  }
+  .content{
+	color: #000000;
+	background-color: #F2F2F2;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 12pt;
+	padding: 35px;
+	max-width: (@maxWidth - 70px);
+
+	hr{
+	  border: 0;
+	  border-top: 2px solid #727272;
+	  margin-bottom: 85px;
+	}
+	em{
+	  font-style: normal;
+	  color: @xebiaEmphasizedFontColor;
+	}
+	h2{
+	  text-transform: uppercase;
+	  font-size: 30pt;
+	  text-align: center;
+	  font-weight: normal;
+	  padding-top: 55px;
+	  em{
+		font-style: normal;
+		font-weight: normal;
+	  }
+	}
+	h3{
+	  color: #605C61;
+	  font-size: 24pt;
+	  font-weight: normal;
+	  text-transform: uppercase;
+	}
+	.subtitle{
+	  display: block;
+	  text-transform: uppercase;
+	  font-size: 14pt;
+	  text-align: center;
+	}
+	p{
+	  margin-top:45px;
+	  margin-bottom:45px;
+	}
+	H3, p, li{
+	  margin-left: 35px;
+	  margin-right: 35px;
+	}
+	li{
+	  list-style-position: inside;
+	}
+	ul {
+	  line-height: 24pt;
+	  padding-left: 0;
+	}
+  }
+}

@@ -112,7 +112,8 @@
         {% include blocks.html %}
     </section>
 
-    <section class="logo-footer">
+    <section id="footer" class="logo-footer">
+        <p>Passion & Qualité</p>
         <img src="images/logo-alliance-color.png" alt="logo Alliance Xebia">
 
         <div class="alliance">
@@ -121,12 +122,17 @@
             <a href="http://www.thiga.fr/" title="Site Thiga">THIGA</a> +
             <a href="http://ux-republic.com" title="Site UX Republic">UX-REPUBLIC</a>
         </div>
+        <div class="legal-footer"><a id="link-legal" href="legal.html" title="mentions légales">Mentions légales</a>
+        </div>
     </section>
-    <!-- TODO  lien vers les mentions légales style à faire-->
-    <!-- <a href="/legal.html" title="mentions légales">Mentions légales</a> -->
 </div>
 
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+    if (typeof $ === 'undefined') {
+        document.write('<' + 'scr' + 'ipt src="scripts/jquery-2.0.3.min.js">' + '</' + 'scr' + 'ipt>');
+    }
+</script>
 <script src="scripts/jquery-ui-1.10.3.custom-sortable.min.js"></script>
 <script src="scripts/eventbrite.jquery.js"></script>
 <script src="scripts/jquery.mixitup.min.js"></script>

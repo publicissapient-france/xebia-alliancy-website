@@ -286,6 +286,13 @@ a, span, div, h1, h2, p {
             display: inline-block;
             cursor: pointer;
 
+
+			&.alliance {
+			  background: url('../images/img-logo-2-alliance.png');
+			  width: 92px;
+			  height: 60px;
+			}
+
             &.xebia {
               background: url('../images/xebia/img_nav_logo_Xebia.png');
               width: 101px;
@@ -377,10 +384,13 @@ a, span, div, h1, h2, p {
   }
 
   .logo-footer {
-    display: none;
+	/*display:none;/*/
     text-align: center;
     margin-top: 50px;
-
+	p{
+	  color: #605C61;
+	  font-size: 14pt;
+	}
     .alliance {
       @colorAlliance: #8E8E8E;
       color: @colorAlliance;
@@ -400,10 +410,25 @@ a, span, div, h1, h2, p {
       }
     }
 
-    @media (max-width: @mobileModeMaxWidth) {
-      display: block;
-
+    .legal-footer{
+      background-color: #423d41;
+      color: white;
+	  a {
+		color:white;
+		text-decoration: none;
+		&:hover {
+		  color:darken(white, 20%);
+		  text-decoration: underline;
+		}
+		&:visited {
+		  color:darken(white, 33%);
+		}
+	  }
     }
+
+    /*@media (max-width: @mobileModeMaxWidth) {
+      display: block;
+    }*/
   }
 
   .content {

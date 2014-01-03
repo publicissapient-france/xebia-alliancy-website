@@ -10,7 +10,7 @@
                 }
             }
 
-            return null;
+            return -1;
         },
         find: function (coll, fn) {
             for (var index in coll) {
@@ -240,36 +240,40 @@
 
             this.mixitup = new Mixitup();
         },
+        displayBlogPost: function (post) {
+            var date = parseExternalDate(post.date);
+            var title = post.title;
+            var excerpt = post.content;
+            var url = post.url;
+
+
+            var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
+
+            var $contentBlock = $blogBlock.find('.content-block');
+            var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
+            $excerpt.find('.more-link').remove();
+
+
+            $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
+            $contentBlock.append($excerpt);
+
+            this.addAndDisplayXebiaBlock($blogBlock);
+        },
         initBlogBlock: function () {
             var self = this;
             var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=1';
             var promiseForBlog = $.ajax(urlApiBlog, {
                 dataType: 'jsonp'
             });
+
+
             promiseForBlog.done(function (blogResponse) {
                 var posts = blogResponse.posts;
                 if (posts.length < 1) {
                     return;
                 }
-                posts.forEach(function (post) {
-                    var date = parseExternalDate(post.date);
-                    var title = post.title;
-                    var excerpt = post.content;
-                    var url = post.url;
 
-
-                    var $blogBlock = BLOCK.initXebiaTemplateBlock('blog-block', date, title, url);
-
-                    var $contentBlock = $blogBlock.find('.content-block');
-                    var $excerpt = $('<div class="excerpt"><div class="excerpt-content">' + excerpt + '</div></div>');
-                    $excerpt.find('.more-link').remove();
-
-
-                    $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
-                    $contentBlock.append($excerpt);
-
-                    self.addAndDisplayXebiaBlock($blogBlock);
-                });
+                posts.forEach(self.displayBlogPost);
 
             });
         },

@@ -12,18 +12,18 @@
   .content-block {
     background: url("../images/blocks/img_photo_Luc.jpg") no-repeat bottom right;
     height: @blockHeight - @titleHeight - 20px;
-    @media (max-width: @mobileModeMaxWidth) {
+    @media (max-width: @tableModeMaxWidth) {
       height: auto;
     }
 
     blockquote {
-
       margin: 0;
       padding: 0 @paddingContent;
       font-weight: 100;
 
       font-size: 9pt;
-      width: 330px;
+      margin-right: 160px;
+      min-height: 200px;
 
       p {
         margin: 10px 0;
@@ -55,6 +55,7 @@
       height: inherit;
       blockquote {
         width: inherit;
+        margin-right: 0;
       }
     }
   }
