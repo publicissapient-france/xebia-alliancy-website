@@ -273,7 +273,9 @@
                     return;
                 }
 
-                posts.forEach(self.displayBlogPost);
+                posts.forEach(function (post) {
+                    self.displayBlogPost(post)
+                });
 
             });
         },
