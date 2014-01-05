@@ -39,9 +39,23 @@
 <![endif]-->
 <div class="wrapper {{page.classBody}}">
 	<header>
+		<div class="inline-menu">
+			<div class="galatic-bar">
+				<span class="alliance-band"></span>
+				<span class="thiga-band"></span>
+				<span class="labs-band"></span>
+				<span class="xebia-band"></span>
+				<span class="ux-band"></span>
+			</div>
+			<div class="stripes">
+				<span class="stripe-band"></span>
+				<span class="stripe-band"></span>
+				<span class="stripe-band"></span>
+				<span class="stripe-band"></span>
+			</div>
+		</div>
 		<div class="general-navigation">
 			<div class="frise">
-				<!-- TODO style/logo Xebia alliance + pourquoi on ne voit pas la frise nom de Zeus oO -->
 				<span><a class="alliance" href="/"><span>Xebia alliance</span></a></span>
 				<span><a class="xebia" href="http://www.xebia.fr"><span>Xebia</span></a></span>
 				<span><a class="ux" href="http://ux-republic.com"><span>UX Republic</span></a></span>
@@ -72,6 +86,7 @@
 <script>
 	$(function () {
 		APPLICATION.initStickyHeader();
+		APPLICATION.initMenuMobile();
 	})
 </script>
 <script type="text/javascript">
