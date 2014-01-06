@@ -189,7 +189,9 @@
         initSubLevel: function () {
             var self = this;
 
-            $('.frise a').removeAttr('href').click(function () {
+            $('.frise a').removeAttr('href').filter(function() {
+                return !$(this).hasClass('alliance');
+            }).click(function () {
                 var classToSearch = $(this).attr('class');
 
                 var subpage = PAGE.findByName(classToSearch);
@@ -305,7 +307,7 @@
         },
         initClickAllianceLogo: function () {
             var self = this;
-            $('.alliance-logo').click(function () {
+            $('.alliance-logo, .alliance').click(function () {
                 if (PAGE.isCurrentDetail) {
                     self.navigate(PAGE.currentPage);
                     //Reset filter
