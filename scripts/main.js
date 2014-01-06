@@ -124,12 +124,13 @@
         }
     };
 
-    var Mixitup = function () {
+    var Mixitup = function (isDetail) {
         this.currentFilter = 'block';
         this.$blockContent = $('#blockContent');
+
         this.$blockContent.mixitup({
             targetSelector: '.block',
-            showOnLoad: 'none'
+            showOnLoad: isDetail?'none':'all'
         });
         this.$blockContent.sortable();
     };
@@ -238,7 +239,7 @@
             this.initEventbriteBlock();
             this.initBlogBlock();
 
-            this.mixitup = new Mixitup();
+            this.mixitup = new Mixitup(PAGE.isCurrentDetail);
         },
         displayBlogPost: function (post) {
             var date = parseExternalDate(post.date);
