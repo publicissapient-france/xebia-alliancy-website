@@ -1,17 +1,15 @@
 @import 'mixins.less';
 @import 'vars.less';
 
-
 .wrapper.legal {
   header {
 	height: 75px;
 	background-color: @xebiaEmphasizedFontColor;
-	.general-navigation {
-	  .frise {
-		min-height: @friseHeight - 2px;
-		max-height: @friseHeight - 2px;
-		&>span {
-		  width:19.5%;
+	@media (min-width: @mobileModeMaxWidth) {
+	  .general-navigation {
+		.frise {
+		  min-height: @friseHeight - 2px;
+		  max-height: @friseHeight - 2px;
 		}
 	  }
 	}
@@ -71,5 +69,17 @@
 	  line-height: 24pt;
 	  padding-left: 0;
 	}
+
+	@media (max-width: @mobileModeMaxWidth) {
+	  padding: 0;
+	  h3{
+		font-size: 18pt;
+	  }
+	  h3, p, li{
+		margin-right: 10px;
+		margin-left: 10px;
+	  }
+	}
   }
+
 }
