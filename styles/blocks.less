@@ -183,14 +183,14 @@
   }
 }
 
-.ux-block {
-  width: 482px;
-  background: url('../images/blocks/img_ux-republic.jpg') bottom;
+.blockWithOnlyAnImage(@imageWidth, @imageUrl) {
+  width: @imageWidth;
+  background: url(@imageUrl) bottom;
   .content-block {
     display: none;
 
     img {
-      max-width:482px;
+      max-width: @imageWidth;
     }
   }
   @media (max-width: @tableModeMaxWidth) {
@@ -203,29 +203,11 @@
   }
 }
 
+.ux-block {
+  .blockWithOnlyAnImage(482px, '../images/blocks/img_ux-republic.jpg');
+}
+
 .voeux-block {
-  width: 484px;
-  background: url('../images/blocks/img-Brique-2014.jpg') bottom;
-
-  .title-block {
-    margin: 0;
-    border: 5px solid white;
-  }
-
-  .content-block {
-    display: none;
-
-    img {
-      max-width:484px;
-    }
-  }
-  @media (max-width: @tableModeMaxWidth) {
-    background: white;
-    width: auto;
-
-    .content-block {
-      display: block;
-    }
-  }
+  .blockWithOnlyAnImage(414px, '../images/blocks/img-Brique-2014.jpg');
 }
 
