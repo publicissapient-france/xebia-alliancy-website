@@ -203,5 +203,29 @@
   }
 }
 
+.voeux-block {
+  width: 484px;
+  background: url('../images/blocks/img-Brique-2014.jpg') bottom;
 
+  .title-block {
+    margin: 0;
+    border: 5px solid white;
+  }
+
+  .content-block {
+    display: none;
+
+    img {
+      max-width:484px;
+    }
+  }
+  @media (max-width: @tableModeMaxWidth) {
+    background: white;
+    width: auto;
+
+    .content-block {
+      display: block;
+    }
+  }
+}
 
