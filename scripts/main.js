@@ -287,6 +287,7 @@
         },
         navigate: function (page) {
             this.goToPage(page);
+            document.title = page.title;
             history.pushState(page, page.title, page.url)
         }
     };
