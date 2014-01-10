@@ -395,10 +395,12 @@
         },
         navigate: function (page) {
             this.goToPage(page);
+            document.title = page.title;
             history.pushState({page: page, mode: 'normal'}, page.title, page.url)
         },
         subNavigate: function (subpage) {
             this.goToSubPage(subpage);
+            document.title = subpage.title;
             history.pushState({page: subpage, mode: 'detail'}, subpage.title, subpage.urlDetail)
         },
         addAndDisplayXebiaBlock: function ($block) {
@@ -420,6 +422,7 @@
             $contentBlock.append('<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>');
 
             this.addAndDisplayXebiaBlock($eventBriteBlock);
+
         }
     };
 })();
