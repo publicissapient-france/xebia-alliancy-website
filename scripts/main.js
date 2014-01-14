@@ -181,7 +181,8 @@
             $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
             $contentBlock.append($excerpt);
 
-            addAndDisplayBlock($blogBlock);
+//TODO a reactiver
+            //addAndDisplayBlock($blogBlock);
         },
         initBlogBlock: function () {
             var urlApiBlog = 'http://blog.xebia.fr/wp-json-api/get_recent_posts/?count=1';
