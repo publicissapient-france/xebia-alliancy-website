@@ -260,7 +260,8 @@
             $excerpt.find('img').css('width', 'inherit').css('height', 'inherit');
             $contentBlock.append($excerpt);
 
-            this.addAndDisplayXebiaBlock($blogBlock);
+		//TODO a reactiver
+            //this.addAndDisplayXebiaBlock($blogBlock);
         },
         initBlogBlock: function () {
             var self = this;
