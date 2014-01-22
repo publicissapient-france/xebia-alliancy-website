@@ -107,7 +107,7 @@
         $contentBlock.append('<div class="bottom-arrow"></div>');
         $contentBlock.append('<img src="' + img + '" alt="' + altImg + '" class="illustration big-illustration"/>');
 
-        addAndDisplayBlock($eventBriteBlock);
+        //addAndDisplayBlock($eventBriteBlock);
     };
 
     window.APPLICATION = {
